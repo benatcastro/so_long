@@ -18,7 +18,7 @@ AR = ar rc
 CC_FLAGS = -O2 -DSTRINGPUTX11
 SRC_DIR_C = srcs_c/
 SRC_DIR_M = srcs_m/
-OBJ_DIR = ../objs/
+OBJ_DIR = objs/
 LIBRARIES_DIR = ../libraries/
 INCLUDES = ../includes/
 # add to match string put with X11 in size and position
@@ -30,11 +30,12 @@ OBJ_M = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES_M)))
 
 all: $(NAME)
 
-$(NAME) : $(OBJ_C) $(OBJ_M)
+$(NAME) : $(OBJF) $(OBJ_C) $(OBJ_M)
 	@$(AR) $(NAME) $(OBJ_C) $(OBJ_M)
 	@ranlib $(NAME)
 	@echo Minilib compiled
 $(OBJ_DIR)%.o: $(SRC_DIR_C)%.c
+	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CC_FLAGS) -I $(INCLUDES) -c $< -o $@
 
 $(OBJ_DIR)%.o: $(SRC_DIR_M)%.m
@@ -42,6 +43,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR_M)%.m
 
 clean:
 	@rm -f $(NAME) $(OBJ_C) $(OBJ_M)
+	@rm -rf $(OBJ_DIR)
 	@rm -f mlx_app
 
 re: clean all

@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.h                                             :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 09:25:18 by almirand          #+#    #+#             */
-/*   Updated: 2022/07/17 15:17:22 by becastro         ###   ########.fr       */
+/*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
+/*   Updated: 2022/07/17 15:32:15 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  KEYS_H
-# define KEYS_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-# define UP				2
-# define DOWN			3
-# define RIGHT			4
-# define LEFT			5
+# include "libft.h"
+# include "keys.h"
+# include "mlx.h"
 
-# define CLOSE_BUTTON	0
-# define ESC			53
-# define H				9
+typedef struct t_data {
+	void	*win_id;
+	void	*win;
+	char	*addr;
+	int		bits_pix;
+	int		len_line;
+	int		endian;
+}				t_data;
+
+int	ft_key_hooks(int key);
 
 #endif

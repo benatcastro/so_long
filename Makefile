@@ -1,4 +1,5 @@
 #---------NAMES--------------
+NAME 		= so_long
 LIB_NAME 	= 42lib.a
 LIBFT 		= libft
 GNL 		= gnl
@@ -10,9 +11,10 @@ AR			= ar rc
 CFLAGS 		= -Wall -Wextra -Werror
 SANITIZE 	= -fsanitize=address -g3
 VALGRIND 	= valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
-
+MINILIB		= -framework openGL -framework AppKit -lmlx
 #---------DIRECTORIES-----------
 SRC_DIR = srcs/
+PROJECT_DIR = srcs/so_long/
 OBJ_DIR = objs/
 INC_DIR = includes/
 LIB_DIR = libraries/
@@ -24,6 +26,12 @@ SRC_LIBFT = $(addprefix $(SRC_DIR)libft/, $(addsuffix .c, $(FILES_LIBFT)))
 OBJ_LIBFT = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES_LIBFT)))
 
 all: minilibx 42lib
+	$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)* $(LIB_DIR)* -I $(INC_DIR) -o $(NAME)
+	@echo "So Long Compiled"
+
+run: all
+	@clear
+	@./$(NAME)
 
 42lib: libft gnl
 	@$(AR) $(LIB_DIR)$(LIB_NAME) $(OBJ_DIR)*
@@ -55,6 +63,8 @@ clean:
 	@make clean -C srcs/ft_printf
 	@make clean -C srcs/gnl
 	@make clean -C minilibx
+	@rm -rf $(LIB_DIR)$(LIB_NAME)
+	@rm -rf $(NAME)
 	@clear
 	@echo "Clean done"
 
