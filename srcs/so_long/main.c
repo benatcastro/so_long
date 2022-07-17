@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/17 16:09:38 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/17 17:25:15 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	main(int argc, char **argv)
 {
+	(void)argc;
+	(void)argv;
 	if (argc != 2)
-		return (0);
+	 	return (0);
 	ft_validate_map(argv[1]);
 	// t_data	mlx_data;
 

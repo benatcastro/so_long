@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 07:26:41 by bena              #+#    #+#             */
-/*   Updated: 2022/07/17 16:10:41 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/17 17:29:17 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strjoin_gnl(char *str1, char *str2)
 		str1 = malloc(1);
 		str1[0] = '\0';
 	}
-	n_str = malloc(ft_strlen(str1) + ft_strlen(str2) + 1);
+	n_str = malloc(ft_strlen_gnl(str1) + ft_strlen_gnl(str2) + 1);
 	if (!n_str)
 		return (NULL);
 	while (str1[++i])
@@ -37,7 +37,7 @@ char	*ft_strjoin_gnl(char *str1, char *str2)
 	return (n_str);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen_gnl(const char *s)
 {
 	size_t	counter;
 
@@ -49,13 +49,13 @@ size_t	ft_strlen(const char *s)
 	return (counter);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup_gnl(const char *s1)
 {
 	char	*str;
 	int		i;
 	size_t	len;
 
-	len = ft_strlen(s1);
+	len = ft_strlen_gnl(s1);
 	i = -1;
 	str = malloc((len + 1) * sizeof(char));
 	if (!str)
@@ -74,7 +74,6 @@ void	ft_free_node(t_fd **head, t_fd *node)
 	{
 		aux = node;
 		(*head) = (*head)->next;
-		//printf("FIRST NODE FREE (%d) \n", aux->fd);
 		free(aux);
 	}
 	else
@@ -89,7 +88,6 @@ void	ft_free_node(t_fd **head, t_fd *node)
 			}
 			aux = aux->next;
 		}
-		//printf("NODE BEING FREE (%d)\n", node->fd);
 		free(node);
 	}
 }

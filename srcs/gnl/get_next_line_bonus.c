@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 20:46:27 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/17 16:11:12 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/17 20:18:12 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ static	int	get_str(int fd, t_fd *node, int rd)
 			break ;
 		buffer[1] = 0;
 		aux = ft_strjoin_gnl(node->str, buffer);
-		node->str = ft_strdup(aux);
+		node->str = ft_strdup_gnl(aux);
 		free(aux);
-		if (node->str[ft_strlen(node->str) - 1] == '\n' )
+		if (node->str[ft_strlen_gnl(node->str) - 1] == '\n' )
 			break ;
 	}
 	free(buffer);
@@ -103,7 +103,6 @@ char	*get_next_line(int fd)
 	if (eof == 1)
 	{
 		free(aux->str);
-		printf("freeing node (%d)\n", aux->fd);
 		ft_free_node(&node, aux);
 		return (NULL);
 	}

@@ -26,12 +26,16 @@ SRC_LIBFT = $(addprefix $(SRC_DIR)libft/, $(addsuffix .c, $(FILES_LIBFT)))
 OBJ_LIBFT = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES_LIBFT)))
 
 all: minilibx 42lib
-	$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)* $(LIB_DIR)* -I $(INC_DIR) -o $(NAME)
+	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)* -I $(INC_DIR) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 
 run: all
+#	clear
+	./$(NAME) maps/map1.ber
+
+valgrind:
 	@clear
-	@./$(NAME)
+	@$(VALGRIND) ./$(NAME) maps/map1.ber
 
 42lib: libft gnl
 	@$(AR) $(LIB_DIR)$(LIB_NAME) $(OBJ_DIR)*

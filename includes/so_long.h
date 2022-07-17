@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/17 16:04:44 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/17 17:26:39 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ typedef struct t_map {
 	int		character;
 	int		collectables;
 	int		valid_walls;
-	int		map_lenghth;
+	int		map_width;
 }	t_map;
 
 int	ft_key_hooks(int key);
+int	ft_validate_map(char *map_path);
 
 #endif
