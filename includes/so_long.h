@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/18 04:09:49 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/18 16:46:39 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "keys.h"
 # include "mlx.h"
 # include "get_next_line_bonus.h"
+
+# define IMAGE_RES 128
 
 typedef struct t_data {
 	void	*win_id;
@@ -30,6 +32,8 @@ typedef struct t_data {
 typedef struct t_map {
 	int		fd;
 	int		character;
+	int		exit;
+	int		enemies;
 	int		collectables;
 	int		valid_walls;
 	int		width;
@@ -37,7 +41,8 @@ typedef struct t_map {
 }	t_map;
 
 int		ft_key_hooks(int key);
-int		ft_validate_map(char *map_path);
+t_map	ft_validate_map(char *map_path);
 void	ft_map_errors(int error_key);
+void	ft_uitls_errors(int error_key);
 
 #endif

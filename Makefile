@@ -39,10 +39,10 @@ mac-os: minilibx 42lib
 
 
 run: all
-#	clear
-	./$(NAME) maps/map1.ber
+	@clear
+	@./$(NAME) maps/map1.ber
 
-valgrind:
+valgrind: all
 	@clear
 	@$(VALGRIND) ./$(NAME) maps/map1.ber
 
@@ -56,23 +56,23 @@ mk_dirs:
 	@mkdir -p $(OBJ_DIR)
 
 minilibx: mk_dirs
-	@make --no-print-directory -C srcs/minilibx
+	@make -s --no-print-directory -C srcs/minilibx
 
 minilibx_linux: mk_dirs
-	@make --no-print-directory -C srcs/minilibx-linux
+	@make -s --no-print-directory -C srcs/minilibx-linux
 	@echo "Minilib Linux Compiled"
 
 libft: mk_dirs
-	@make --no-print-directory -C srcs/libft
+	@make -s --no-print-directory -C srcs/libft
 	@echo "Libft Compiled"
 
 printf: mk_dirs libft
-	@make --no-print-directory -C srcs/ft_printf
+	@make -s --no-print-directory -C srcs/ft_printf
 	@clear
 	@echo "Printf Compiled"
 
 gnl: mk_dirs
-	@make --no-print-directory -C srcs/gnl
+	@make -s --no-print-directory -C srcs/gnl
 	@echo "GNL Compiled"
 
 clean:
