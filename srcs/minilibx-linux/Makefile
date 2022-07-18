@@ -33,19 +33,20 @@ SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \
 	mlx_rgb.c mlx_destroy_image.c mlx_mouse.c mlx_screen_size.c \
 	mlx_destroy_display.c
 LIB_DIR = ../../libraries/
-OBJ_DIR = objs
+OBJ_DIR = ../../objs/minilib_linux_objs
 OBJ	= $(addprefix $(OBJ_DIR)/,$(SRC:%.c=%.o))
+INC_DIR = -I ../../includes/linux_includes/
 CFLAGS	= -O3 -I$(INC)
 
 all	: $(NAME)
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC_DIR) $(IFLAGS) -c $< -o $@
 
 $(NAME)	: $(OBJ)
-	ar -r $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar -rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 #	mv $(NAME) $(NAME_UNAME)
 
 check: all
