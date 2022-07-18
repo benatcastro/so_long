@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/18 16:46:39 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/18 18:06:38 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int		ft_key_hooks(int key);
 t_map	ft_validate_map(char *map_path);
 void	ft_map_errors(int error_key);
 void	ft_uitls_errors(int error_key);
-
+/************************Mlx Functions******************************/
+void	*ft_create_image(t_data *mlx_data, char *image_path);
 #endif
