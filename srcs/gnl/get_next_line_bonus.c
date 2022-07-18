@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 20:46:27 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/17 20:18:12 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/18 02:42:54 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static	int	get_str(int fd, t_fd *node, int rd)
 		aux = ft_strjoin_gnl(node->str, buffer);
 		node->str = ft_strdup_gnl(aux);
 		free(aux);
-		if (node->str[ft_strlen_gnl(node->str) - 1] == '\n' )
+		if (node->str[ft_strlen_gnl(node->str) - 1] == '\n')
 			break ;
 	}
 	free(buffer);

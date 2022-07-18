@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:27:46 by becastro          #+#    #+#             */
-/*   Updated: 2022/04/27 14:57:36 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/18 03:37:16 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+size_t	ft_len_to_char(const char *s, char c);
+int		ft_is_in_set(const char c, const char *set);
 int		ft_atoi(const char *nptr);
 int		ft_isalpha(int argument);
 int		ft_isdigit(int arg);

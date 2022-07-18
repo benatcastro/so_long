@@ -40,7 +40,8 @@ SRC_FILES = ft_isalpha\
 			ft_lstdelone_bonus	\
 			ft_lstclear_bonus		\
 			ft_lstiter_bonus		\
-			ft_lstmap_bonus
+			ft_lstmap_bonus			\
+			ft_is_in_set
 
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/17 17:26:39 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/18 04:09:49 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ typedef struct t_map {
 	int		character;
 	int		collectables;
 	int		valid_walls;
-	int		map_width;
+	int		width;
+	int		height;
 }	t_map;
 
-int	ft_key_hooks(int key);
-int	ft_validate_map(char *map_path);
+int		ft_key_hooks(int key);
+int		ft_validate_map(char *map_path);
+void	ft_map_errors(int error_key);
 
 #endif

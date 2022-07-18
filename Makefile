@@ -28,7 +28,7 @@ SRC_LIBFT = $(addprefix $(SRC_DIR)libft/, $(addsuffix .c, $(FILES_LIBFT)))
 OBJ_LIBFT = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES_LIBFT)))
 
 all: linux
-	
+
 linux: minilibx_linux 42lib
 	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(PROJECT_DIR)* $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
