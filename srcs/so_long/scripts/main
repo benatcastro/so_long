@@ -87,6 +87,7 @@ do
 	echo "Press 1 for mandatory"
 	echo "Press 2 for bonus"
 	echo "Press q to exit"
+        echo "Your input:"
 	read answear
 	case "$answear" in
 		1)

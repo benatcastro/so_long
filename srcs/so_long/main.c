@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/18 19:14:23 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/19 19:40:03 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	mlx_data.win = mlx_new_window(mlx_data.win_id, (IMAGE_RES * map_data.width),
 			(IMAGE_RES * map_data.height), "so_long");
 
-	img = mlx_xpm_file_to_image(mlx_data.win_id, "blue_test.xpm", &test1, &test2);
+	img = mlx_xpm_file_to_image(mlx_data.win_id, "julen_test.xpm", &test1, &test2);
 	printf("IMG (%p)", img);
 	//mlx_put_image_to_window(mlx_data.win_id, mlx_data.win, img, 100, 100);
 	mlx_key_hook(mlx_data.win, ft_key_hooks, NULL);
