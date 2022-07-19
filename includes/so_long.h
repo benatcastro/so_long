@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/18 18:06:38 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/20 01:18:12 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # include "mlx.h"
 # include "get_next_line_bonus.h"
 
-# define IMAGE_RES 128
+# define IMG_RES 128
 
 typedef struct t_data {
-	void	*win_id;
+	void	*ptr;
 	void	*win;
 	char	*addr;
 	int		bits_pix;

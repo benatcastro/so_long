@@ -76,7 +76,8 @@ BLA::stop_loading_animation() {
 printf "%s\n\n" "${HEADER}"
 printf "\t\t        LOADING\n"
 BLA::start_loading_animation "${BLA_so_long[@]}"
-sleep 7.75s
+make
+sleep 0.75s
 BLA::stop_loading_animation
 clear
 check=0
@@ -84,27 +85,23 @@ while [ $check = 0 ]
 do
 	clear
 	printf "\r%s\n\n" "${HEADER}"
-	echo "Press 1 for mandatory"
-	echo "Press 2 for bonus"
-	echo "Press q to exit"
-        echo "Your input:"
+	printf "Press '1' for mandatory | Press '2' for bonus | Press 'q' to exit\n\n\t\t        Your input:"
 	read answear
 	case "$answear" in
 		1)
 		clear
-		echo "Starting mandatory"
+		make run
 		check=1
 		;;
 		2)
 		clear
-		echo "Starting bonus"
+		make run
 		check=1
 		;;
 		q)
 		exit
 		;;
 		*)
-		echo "enter a valid input"
 	esac
 done
 sleep 1m

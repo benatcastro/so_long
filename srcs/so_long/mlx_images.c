@@ -18,8 +18,8 @@ void	*ft_create_image(t_data *mlx_data, char *image_path)
 {
 	void	*img;
 
-	img = mlx_xpm_file_to_image(mlx_data->win_id,
-			image_path, (int *)IMAGE_RES, (int *)IMAGE_RES);
+	img = mlx_xpm_file_to_image(mlx_data->ptr,
+			image_path, (int *)IMG_RES, (int *)IMG_RES);
 	printf("IMG (%p)", img);
 	return (img);
 }
