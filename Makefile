@@ -36,7 +36,7 @@ Linux: minilibx_linux 42lib
 	@echo "So Long Compiled"
 
 mac-os: minilibx 42lib
-	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)* -I $(INC_DIR)  -o $(NAME) $(LIB_DIR)*
+	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 
 
