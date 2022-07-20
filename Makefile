@@ -29,18 +29,26 @@ SRC_LIBFT = $(addprefix $(SRC_DIR)libft/, $(addsuffix .c, $(FILES_LIBFT)))
 OBJ_LIBFT = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES_LIBFT)))
 
 all: $(UNAME)
+	@echo $(UNAME)
 #	@bash scripts/main
 
 Linux: minilibx_linux 42lib
 	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 
-mac-os: minilibx 42lib
+Darwin: minilibx 42lib
 	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 
-
-run: all
+sanitize:
+ifeq ($(UNAME), Linux)
+	@$(CC) $(CFLAGS) $(SANITIZE) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
+	@echo "Sanitize Linux"
+else
+	@$(CC) $(CFLAGS) $(SANITIZE) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) -o $(NAME) $(LIB_DIR)*
+	@echo "Sanitize Darwin"
+endif
+run:
 	@clear
 	@./$(NAME) maps/map1.ber
 

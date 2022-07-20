@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/20 01:21:08 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/20 04:31:54 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@
 static void	ft_init_window(int width, int height)
 {
 	t_data	mlx_data;
+	t_frame	*frame;
 
 	mlx_data.ptr = mlx_init();
 	mlx_data.win = mlx_new_window(mlx_data.ptr, width, height, "so_long");
+	frame->mlx_ptr = mlx_data.ptr;
+	frame->mlx_win = mlx_data.win;
+	ft_load_textures(&mlx_data, frame);
 	mlx_key_hook(mlx_data.win, ft_key_hooks, NULL);
 	mlx_hook(mlx_data.win, 17, 1L << 17, ft_key_hooks, NULL);
+	mlx_loop_hook(mlx_data.ptr, ft_render_frame, &frame);
 	mlx_loop(mlx_data.ptr);
 }
 
