@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/20 04:41:38 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/20 05:09:23 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 
 void	ft_load_character(t_data *mlx, t_frame *frame)
 {
-	frame->player.tex[0] = mlx_xpm_file_to_image(mlx->ptr,
+	void *img;
+
+	(void)frame;
+	img = mlx_xpm_file_to_image(mlx->ptr,
 			"textures/green_test.xpm",
 			(int *)IMG_RES, (int *)IMG_RES);
-	printf("IMG (%p)", frame->player.tex[0]);
+	printf("TEST (%p)", img);
 	// char_tex[1] = mlx_xpm_file_to_image(mlx->ptr, IMG_COLOR2,
 	// 		(int *)IMG_RES, (int *)IMG_RES);
 	// char_tex[2] = mlx_xpm_file_to_image(mlx->ptr, IMG_COLOR3,
