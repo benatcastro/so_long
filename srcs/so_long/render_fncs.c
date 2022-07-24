@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/24 23:22:04 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/25 00:11:55 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@
 int	ft_render_frame(void *render_data)
 {
 	static int		frame;
+	static int		i;
 	t_program_data	*data;
 
+	if (i == 2)
+		i = 0;
 	data = render_data;
-	printf("\n------RENDER------");
-	printf("PTR (%p)\nTEX (%p)\n", data->mlx.ptr, data->player.tex[0]);
-	mlx_put_image_to_window(data->mlx.ptr, data->mlx.win, data->player.tex[0], 0, 0);
+	mlx_put_image_to_window(data->mlx.ptr,
+		data->mlx.win, data->player.tex[i], 0, 0);
+	i++;
+	//printf("test (%d)\n", i);
+	usleep(20000);
 	frame++;
 	return (frame);
 }

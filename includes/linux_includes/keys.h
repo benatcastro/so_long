@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   keys.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 00:15:22 by bena             ###   ########.fr       */
+/*   Created: 2022/06/08 09:25:18 by almirand          #+#    #+#             */
+/*   Updated: 2022/07/25 00:14:18 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef  KEYS_H
+# define KEYS_H
 
-int	ft_key_hooks(int key)
-{
-	//printf("KEY (%d)\n", key);
-	if (key == ESC || key == CLOSE_BUTTON)
-		exit (0);
-	return (1);
-}
+# define W				119
+# define A				97
+# define S				115
+# define D				100
+
+# define CLOSE_BUTTON	0
+# define ESC			65307
+
+#endif

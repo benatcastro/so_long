@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/24 23:19:00 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/25 00:08:35 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_map {
 
 typedef struct s_character
 {
-	void	*tex[3];
+	void	*tex[2];
 	int		x;
 	int		y;
 }	t_character;
