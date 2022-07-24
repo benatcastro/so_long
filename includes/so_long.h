@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/24 22:54:32 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/24 23:19:00 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 # define IMG_RES 128
 
-typedef struct s_data {
+typedef struct s_mlx_data {
 	void	*ptr;
 	void	*win;
 	char	*addr;
@@ -47,11 +47,11 @@ typedef struct s_character
 	int		y;
 }	t_character;
 
-typedef struct s_frame
+typedef struct s_program_data
 {
-	struct s_data		mlx;
+	struct s_mlx_data	mlx;
 	struct s_character	player;
-}	t_frame;
+}	t_program_data;
 
 int		ft_key_hooks(int key);
 t_map	ft_validate_map(char *map_path);
@@ -59,9 +59,9 @@ void	ft_map_errors(int error_key);
 void	ft_uitls_errors(int error_key);
 /************************Mlx Functions******************************/
 
-void	ft_load_textures(t_frame *frame);
+void	ft_load_textures(t_program_data *data);
 
 /************************Render FNCS******************************/
-int		ft_render_frame(void *data);
+int		ft_render_frame(void *render_data);
 
 #endif
