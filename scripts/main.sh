@@ -75,8 +75,7 @@ BLA::stop_loading_animation() {
 printf "%s\n\n" "${HEADER}"
 printf "\t\t        LOADING\n"
 BLA::start_loading_animation "${BLA_so_long[@]}"
-make
-sleep 0.75s
+sleep 7.75s
 BLA::stop_loading_animation
 clear
 check=0

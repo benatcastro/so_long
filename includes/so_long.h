@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/20 04:37:57 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/24 22:54:32 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ typedef struct s_character
 
 typedef struct s_frame
 {
-	void				*mlx_ptr;
-	void				*mlx_win;
+	struct s_data		mlx;
 	struct s_character	player;
 }	t_frame;
 
@@ -60,7 +59,7 @@ void	ft_map_errors(int error_key);
 void	ft_uitls_errors(int error_key);
 /************************Mlx Functions******************************/
 
-void	ft_load_textures(t_data *mlx, t_frame *frame);
+void	ft_load_textures(t_frame *frame);
 
 /************************Render FNCS******************************/
 int		ft_render_frame(void *data);

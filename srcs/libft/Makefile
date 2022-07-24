@@ -63,9 +63,6 @@ OBJF = .cache_exists
 
 all: $(OBJ)
 
-#$(NAME) : $(OBJ)
-#	@$(AR) $(NAME) $(OBJ)
-
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(CC_FLAGS) -I $(INCLUDES) -c $< -o $@
 
