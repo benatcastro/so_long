@@ -16,23 +16,43 @@ MINILIB		= -framework openGL -framework AppKit -lmlx
 LINUX_FLAGS	= -L.. -L%%/../lib -lXext -lX11 -lm -lbsd
 #---------DIRECTORIES-----------
 SRC_DIR = srcs/
-PROJECT_DIR = srcs/so_long/
+PROJECT_DIR = ./srcs/so_long/
+PROJECT_OBJS = $(OBJ_DIR)$(NAME)_objs/
 OBJ_DIR = objs/
 INC_DIR = -I includes/
 LINUX_INC = -I includes/linux_includes
 LIB_DIR = libraries/
 
 
+
+#---------------PROJECT_FILES---------------------
+FILES_SO_LONG = hooks			\
+				main			\
+				map_checker		\
+				mlx_load_images	\
+				print_errors	\
+				render_fncs		\
+
 #---------------PREFIX and SUFFIX-----------------
 
-SRC_LIBFT = $(addprefix $(SRC_DIR)libft/, $(addsuffix .c, $(FILES_LIBFT)))
-OBJ_LIBFT = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES_LIBFT)))
+SRC = $(addprefix $(PROJECT_DIR), $(addsuffix .c,  $(FILES_SO_LONG)))
+OBJ = $(addprefix $(PROJECT_OBJS), $(addsuffix .o, $(FILES_SO_LONG)))
 
-all: $(UNAME)
-	@echo $(UNAME)
+all: 42lib $(UNAME)
+#$(TEST): $(OBJ)
+#	@echo "hey"
+
+#$(PROJECT_OBJS)%.o  : $(SRC)%.c
+#	echo "heyd"
+#	(CC) $(CFLAGS) $(INCLUDES) $(LINUX_FLAGS) $(INC_DIR) $(LINUX_INC) $(LIB_DIR)*.a -c $< -o $@
 #	@bash scripts/main
 
-Linux: minilibx_linux 42lib
+Linux: minilibx_linux
+
+#$(NAME): $(OBJ)
+#	$(PROJECT_OBJS): $(SRC)
+#		$(CC) $(CFLAGS) $(INCLUDES) $(LINUX_FLAGS) $(INC_DIR) $(LINUX_INC) $(LIB_DIR)*.a -c $< -o $@
+#	echo $(SRC_SO_LONG)
 	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 
@@ -40,7 +60,7 @@ Darwin: minilibx 42lib
 	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 
-sanitize:
+sanitize: re
 ifeq ($(UNAME), Linux)
 	@$(CC) $(CFLAGS) $(SANITIZE) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "Sanitize Linux"
@@ -63,6 +83,7 @@ valgrind: all
 
 mk_dirs:
 	@mkdir -p $(LIB_DIR)
+	@mkdir -p $(PROJECT_OBJS)
 	@mkdir -p $(OBJ_DIR)
 
 minilibx: mk_dirs
@@ -96,8 +117,11 @@ clean:
 	@clear
 	@echo "Clean done"
 
+clean_test:
+	@rm -rf so_long
+
 fclean: clean
 	@rm -rf $(OBJ_DIR)
 	@rm -rf $(LIB_DIR)
 	@echo "Fclean done"
-re: fclean all
+re: clean_test all
