@@ -104,7 +104,6 @@ do
 		*)
 	esac
 done
-sleep 1m
 
 
 
