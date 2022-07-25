@@ -21,6 +21,7 @@ PROJECT_OBJS = $(OBJ_DIR)$(NAME)_objs/
 OBJ_DIR = objs/
 INC_DIR = -I includes/
 LINUX_INC = -I includes/linux_includes
+DARWIN_INC = -I includes/darwin_includes
 LIB_DIR = libraries/
 
 
@@ -57,7 +58,7 @@ Linux: minilibx_linux
 	@echo "So Long Compiled"
 
 Darwin: minilibx 42lib
-	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) -o $(NAME) $(LIB_DIR)*
+	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) $(DARWIN_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 
 sanitize: re
@@ -124,4 +125,4 @@ fclean: clean
 	@rm -rf $(OBJ_DIR)
 	@rm -rf $(LIB_DIR)
 	@echo "Fclean done"
-re: fclean all
+re: clean_test all

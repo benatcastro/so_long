@@ -19,8 +19,8 @@ CC_FLAGS = -O2 -DSTRINGPUTX11
 SRC_DIR_C = srcs_c/
 SRC_DIR_M = srcs_m/
 OBJ_DIR = objs/
-LIBRARIES_DIR = ../libraries/
-INCLUDES = ../includes/
+LIBRARIES_DIR = ../../libraries/
+INCLUDES = -I ../../includes/darwin_includes/
 # add to match string put with X11 in size and position
 SRC_C = $(addprefix $(SRC_DIR_C), $(addsuffix .c, $(SRC_FILES_C)))
 OBJ_C = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES_C)))
@@ -36,10 +36,10 @@ $(NAME) : $(OBJF) $(OBJ_C) $(OBJ_M)
 	@echo Minilib compiled
 $(OBJ_DIR)%.o: $(SRC_DIR_C)%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CC_FLAGS) -I $(INCLUDES) -c $< -o $@
+	@$(CC) $(CC_FLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJ_DIR)%.o: $(SRC_DIR_M)%.m
-	@$(CC) $(CC_FLAGS) -I $(INCLUDES) -c $< -o $@
+	@$(CC) $(CC_FLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	@rm -f $(NAME) $(OBJ_C) $(OBJ_M)

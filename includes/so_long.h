@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 01:26:12 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/25 17:48:38 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_map {
 
 typedef struct s_character
 {
-	void	*tex[2];
+	void	*tex[3];
 	int		x;
 	int		y;
 }	t_character;
@@ -72,4 +72,5 @@ void	ft_move_character(t_character *player, int dir);
 
 void	ft_uitls_errors(int error_key);
 void	ft_map_errors(int error_key);
+
 #endif
