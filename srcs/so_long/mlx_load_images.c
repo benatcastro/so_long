@@ -6,12 +6,21 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 21:52:18 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/25 23:18:29 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "textures.h"
 #include "so_long.h"
+
+void	ft_load_floor(t_program_data *data)
+{
+	int			res;
+
+	res = IMG_RES;
+	data->floor = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/blue_test.xpm", &res, &res);
+}
 
 void	ft_load_w_edges(t_program_data *data)
 {
