@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fncs.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 14:58:12 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/25 19:11:40 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_render_frame(void *render_data)
 		data->player.x, data->player.y);
 	i++;
 	//printf("test (%d)\n", i);
-	usleep(90000);
+	// usleep(90000);
 	frame++;
 	return (frame);
 }

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 17:48:38 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:58:49 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define IMG_RES 128
 
 typedef struct s_mlx_data {
+	char	*path;
 	void	*ptr;
 	void	*win;
 	char	*addr;
@@ -30,6 +31,7 @@ typedef struct s_mlx_data {
 }	t_data;
 
 typedef struct s_map {
+	char	*path;
 	int		fd;
 	int		character;
 	int		exit;
@@ -51,6 +53,7 @@ typedef struct s_program_data
 {
 	struct s_mlx_data	mlx;
 	struct s_character	player;
+	struct s_map		*map;
 }	t_program_data;
 
 int		ft_key_hooks(int key, void *player_data);
@@ -63,12 +66,13 @@ t_map	ft_validate_map(char *map_path);
 
 /************************Render FNCS******************************/
 int		ft_render_frame(void *render_data);
+void	ft_render_map(t_program_data *data);
 
 /************************Move FNCS******************************/
 
 void	ft_move_character(t_character *player, int dir);
 
-/************************Move FNCS******************************/
+/************************Map FNCS******************************/
 
 void	ft_uitls_errors(int error_key);
 void	ft_map_errors(int error_key);

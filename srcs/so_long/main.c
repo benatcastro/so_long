@@ -3,28 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 00:47:35 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/25 20:17:17 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "textures.h"
 
-static void	ft_init_window(int width, int height)
+static void	ft_init_window(int width, int height, t_map *map_data)
 {
 	t_program_data	data;
 
-	//void	*img;
-	// int		i;
-	// frame = ft_calloc(1, sizeof(t_frame));
+	data.map = map_data;
 	data.mlx.ptr = mlx_init();
 	ft_load_textures(&data);
+	ft_render_map(&data);
 	data.mlx.win = mlx_new_window(data.mlx.ptr, width, height, "so_long");
-	// data.player.tex[2] = mlx_xpm_file_to_image(data.mlx.ptr, "textures/blue_test.xpm", &i, &i);
-	// mlx_put_image_to_window(data.mlx.ptr, data.mlx.win, data.player.tex[0], 0, 0);
 	mlx_key_hook(data.mlx.win, ft_key_hooks, &data.player);
 	mlx_hook(data.mlx.win, 17, 1L << 17, ft_key_hooks, NULL);
 	mlx_loop_hook(data.mlx.ptr, ft_render_frame, &data);
@@ -33,10 +29,11 @@ static void	ft_init_window(int width, int height)
 
 int	main(int argc, char **argv)
 {
-	t_map	map_data;
+	t_map	map;
 
 	if (argc != 2)
 		return (0);
-	map_data = ft_validate_map(argv[1]);
-	ft_init_window(map_data.width * IMG_RES, map_data.height * IMG_RES);
+	map.path = argv[1];
+	map = ft_validate_map(map.path);
+	ft_init_window(map.width * IMG_RES, map.height * IMG_RES, &map);
 }
