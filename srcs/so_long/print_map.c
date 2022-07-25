@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 19:57:52 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/25 22:55:43 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,50 @@ static size_t	ft_read_len(char *path)
 		i++;
 	}
 	free(buffer);
+	close(fd);
 	return (i);
+}
+
+/*pos[0] -> X pos[1] -> 1*/
+void	ft_put_edges(char **map, t_program_data *data)
+{
+	int	i;
+	int	j;
+	int	pos[2];
+
+	pos[1] = 0;
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		pos[0] = 0;
+		while (map[i][++j])
+		{
+			if ((i == 0 || i == data->map->height)
+				&& (pos[0] == 0 || pos[0] == IMG_RES * data->map->width))
+				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
+					data->w_edges.tex[1], pos[0], pos[1]);
+			else if (map[i][j] == '1'
+					&& ((i == 0 || i == data->map->height)
+					|| (pos[0] == 0 || pos[0] == IMG_RES * data->map->width)))
+				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
+					data->w_edges.tex[0], pos[0], pos[1]);
+			pos[0] += IMG_RES;
+		}
+		pos[1] += IMG_RES;
+	}
 }
 
 void	ft_render_map(t_program_data *data)
 {
-	printf("map size (%lu)", ft_read_len(data->map->path));
+	size_t	map_len;
+	char	*map_str;
+	int		fd;
+
+	map_len = ft_read_len(data->map->path);
+	map_str = malloc(map_len);
+	fd = open(data->map->path, O_RDONLY);
+	read (fd, map_str, (int)map_len);
+	close(fd);
+	ft_put_edges(ft_split(map_str, '\n'), data);
 }
