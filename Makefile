@@ -66,7 +66,7 @@ ifeq ($(UNAME), Linux)
 	@$(CC) $(CFLAGS) $(SANITIZE) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "Sanitize Linux"
 else
-	@$(CC) $(CFLAGS) $(SANITIZE) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) -o $(NAME) $(LIB_DIR)*
+	@$(CC) $(CFLAGS) $(SANITIZE) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) $(DARWIN_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "Sanitize Darwin"
 endif
 run:
