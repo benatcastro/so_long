@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/24 23:21:18 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/25 00:47:35 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ static void	ft_init_window(int width, int height)
 
 	//void	*img;
 	// int		i;
-
 	// frame = ft_calloc(1, sizeof(t_frame));
 	data.mlx.ptr = mlx_init();
 	ft_load_textures(&data);
 	data.mlx.win = mlx_new_window(data.mlx.ptr, width, height, "so_long");
 	// data.player.tex[2] = mlx_xpm_file_to_image(data.mlx.ptr, "textures/blue_test.xpm", &i, &i);
 	// mlx_put_image_to_window(data.mlx.ptr, data.mlx.win, data.player.tex[0], 0, 0);
-	mlx_key_hook(data.mlx.win, ft_key_hooks, NULL);
+	mlx_key_hook(data.mlx.win, ft_key_hooks, &data.player);
 	mlx_hook(data.mlx.win, 17, 1L << 17, ft_key_hooks, NULL);
 	mlx_loop_hook(data.mlx.ptr, ft_render_frame, &data);
 	mlx_loop(data.mlx.ptr);

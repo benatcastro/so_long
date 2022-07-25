@@ -124,4 +124,4 @@ fclean: clean
 	@rm -rf $(OBJ_DIR)
 	@rm -rf $(LIB_DIR)
 	@echo "Fclean done"
-re: clean_test all
+re: fclean all
