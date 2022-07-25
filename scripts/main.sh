@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BLA_so_long=(
-					0.25
+					0.1
 					'█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒'
 					'██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒'
 					'███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒'
@@ -74,7 +74,9 @@ BLA::stop_loading_animation() {
 
 printf "%s\n\n" "${HEADER}"
 printf "\t\t        LOADING\n"
+afplay audio/main_theme &
 BLA::start_loading_animation "${BLA_so_long[@]}"
+afplay audio/main_theme.wav &
 sleep 7.75s
 BLA::stop_loading_animation
 clear
