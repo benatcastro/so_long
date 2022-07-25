@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 23:20:30 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 01:19:36 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void	ft_put_floor(char **map, t_program_data *data)
 			{
 				printf("X: %d Y: %d\n", pos[0], pos[1]);
 				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-					data->w_edges.tex[0], pos[0], pos[1]);
+					data->floor.tex[0], pos[0], pos[1]);
 			}
 			pos[0] += IMG_RES;
 		}
 		pos[1] += IMG_RES;
 	}
-	free (map);
+	//free (map);
 }
 
 /*pos[0] -> X pos[1] -> 1*/
@@ -78,12 +78,12 @@ void	ft_put_edges(char **map, t_program_data *data)
 			if ((i == 0 || i == data->map->height)
 				&& (pos[0] == 0 || pos[0] == IMG_RES * data->map->width))
 				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-					data->w_edges.tex[1], pos[0], pos[1]);
+					data->walls.edges_tex[1], pos[0], pos[1]);
 			else if (map[i][j] == '1'
 					&& ((i == 0 || i == data->map->height)
 					|| (pos[0] == 0 || pos[0] == IMG_RES * data->map->width)))
 				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-					data->w_edges.tex[0], pos[0], pos[1]);
+					data->walls.edges_tex[0], pos[0], pos[1]);
 			pos[0] += IMG_RES;
 		}
 		pos[1] += IMG_RES;

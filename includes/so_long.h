@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 23:07:31 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 01:18:18 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,22 @@ typedef struct s_character
 	int		y;
 }	t_character;
 
-typedef struct s_edges
+typedef struct s_walls
+{
+	void	*edges_tex[2];
+}	t_walls;
+
+typedef struct s_floor
 {
 	void	*tex[2];
-}	t_edges;
-
+}	t_floor;
 typedef struct s_program_data
 {
 	struct s_mlx_data	mlx;
 	struct s_character	player;
 	struct s_map		*map;
-	struct s_edges		w_edges;
-	void				*floor;
+	struct s_walls		walls;
+	struct s_floor		floor;
 }	t_program_data;
 
 int		ft_key_hooks(int key, void *player_data);

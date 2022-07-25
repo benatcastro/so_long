@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 23:18:29 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 01:20:21 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ void	ft_load_floor(t_program_data *data)
 	int			res;
 
 	res = IMG_RES;
-	data->floor = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/blue_test.xpm", &res, &res);
+	data->floor.tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/floor/white_tile.xpm", &res, &res);
 }
 
-void	ft_load_w_edges(t_program_data *data)
+void	ft_load_walls(t_program_data *data)
 {
 	int			res;
 
 	res = IMG_RES;
-	data->w_edges.tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
+	data->walls.edges_tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
 			"textures/red_test.xpm", &res, &res);
-	data->w_edges.tex[1] = mlx_xpm_file_to_image(data->mlx.ptr,
+	data->walls.edges_tex[1] = mlx_xpm_file_to_image(data->mlx.ptr,
 			"textures/test1.xpm", &res, &res);
 }
 
@@ -46,6 +46,7 @@ void	ft_load_character(t_program_data *data)
 
 void	ft_load_textures(t_program_data *data)
 {
-	ft_load_w_edges(data);
+	ft_load_walls(data);
 	ft_load_character(data);
+	ft_load_floor(data);
 }
