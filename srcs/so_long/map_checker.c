@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:56:49 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/25 20:11:10 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 03:28:19 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ The structure map_data itself filled with information of the map
 t_map	ft_validate_map(char *map_path)
 {
 	t_map	map_data;
+
 	map_data.path = map_path;
 	map_data.character = 0;
 	map_data.exit = 0;

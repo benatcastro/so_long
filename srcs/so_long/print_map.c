@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/26 03:09:36 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 05:05:25 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_read_len(char *path)
 	return (i);
 }
 
-void	ft_put_floor(char **map, t_program_data *data)
+void	ft_print_floor(char **map, t_program_data *data)
 {
 	int	i;
 	int	j;
@@ -56,7 +56,7 @@ void	ft_put_floor(char **map, t_program_data *data)
 	free (map);
 }
 
-void	ft_put_edges_south(char **map, t_program_data *data)
+void	ft_print_edges_south(char **map, t_program_data *data)
 {
 	int	i;
 	int	y;
@@ -74,7 +74,7 @@ void	ft_put_edges_south(char **map, t_program_data *data)
 	free(map);
 }
 
-void	ft_put_edges_north(char **map, t_program_data *data)
+void	ft_print_edges_north(char **map, t_program_data *data)
 {
 	int	i;
 	int	x;
@@ -101,8 +101,9 @@ void	ft_render_map(t_program_data *data)
 	fd = open(data->map->path, O_RDONLY);
 	read (fd, map_str, (int)map_len);
 	close(fd);
-	ft_put_floor(ft_split(map_str, '\n'), data);
-	ft_put_edges_north(ft_split(map_str, '\n'), data);
-	ft_put_edges_south(ft_split(map_str, '\n'), data);
-
+	ft_print_floor(ft_split(map_str, '\n'), data);
+	ft_print_edges_north(ft_split(map_str, '\n'), data);
+	ft_print_edges_south(ft_split(map_str, '\n'), data);
+	ft_print_sides(ft_split(map_str, '\n'), data);
+	ft_print_corners(ft_split(map_str, '\n'), data);
 }

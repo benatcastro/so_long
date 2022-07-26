@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/26 02:12:44 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 04:36:27 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_character
 
 typedef struct s_walls
 {
-	void	*edges_tex[5];
+	void	*edges_tex[6];
 }	t_walls;
 
 typedef struct s_floor
@@ -78,6 +78,8 @@ t_map	ft_validate_map(char *map_path);
 
 int		ft_render_frame(void *render_data);
 void	ft_render_map(t_program_data *data);
+void	ft_print_corners(char **map, t_program_data *data);
+void	ft_print_sides(char **map, t_program_data *data);
 /************************Move FNCS******************************/
 
 void	ft_move_character(t_character *player, int dir);
