@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/26 04:36:27 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 05:47:16 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,9 @@ t_map	ft_validate_map(char *map_path);
 
 int		ft_render_frame(void *render_data);
 void	ft_render_map(t_program_data *data);
-void	ft_print_corners(char **map, t_program_data *data);
 void	ft_print_sides(char **map, t_program_data *data);
+void	ft_print_corners_north(char **map, t_program_data *data);
+void	ft_print_corners_south(char **map, t_program_data *data);
 /************************Move FNCS******************************/
 
 void	ft_move_character(t_character *player, int dir);

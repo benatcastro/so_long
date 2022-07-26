@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/26 05:05:25 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 05:50:11 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ void	ft_render_map(t_program_data *data)
 	ft_print_edges_north(ft_split(map_str, '\n'), data);
 	ft_print_edges_south(ft_split(map_str, '\n'), data);
 	ft_print_sides(ft_split(map_str, '\n'), data);
-	ft_print_corners(ft_split(map_str, '\n'), data);
+	ft_print_corners_north(ft_split(map_str, '\n'), data);
+	ft_print_corners_south(ft_split(map_str, '\n'), data);
 }
