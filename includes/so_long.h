@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/26 01:18:18 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 02:12:44 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_character
 
 typedef struct s_walls
 {
-	void	*edges_tex[2];
+	void	*edges_tex[5];
 }	t_walls;
 
 typedef struct s_floor
