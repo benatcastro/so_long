@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/26 01:19:36 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/26 03:09:36 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,46 +47,45 @@ void	ft_put_floor(char **map, t_program_data *data)
 		pos[0] = 0;
 		while (map[i][++j])
 		{
-			if (map[i][j] == '0')
-			{
-				printf("X: %d Y: %d\n", pos[0], pos[1]);
-				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-					data->floor.tex[0], pos[0], pos[1]);
-			}
+			mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
+				data->floor.tex[0], pos[0], pos[1]);
 			pos[0] += IMG_RES;
 		}
 		pos[1] += IMG_RES;
 	}
-	//free (map);
+	free (map);
 }
 
-/*pos[0] -> X pos[1] -> 1*/
-void	ft_put_edges(char **map, t_program_data *data)
+void	ft_put_edges_south(char **map, t_program_data *data)
 {
 	int	i;
-	int	j;
-	int	pos[2];
+	int	y;
+	int	x;
 
-	pos[1] = 0;
+	y = IMG_RES * data->map->height + 1;
+	x = 0;
 	i = -1;
-	while (map[++i])
+	while (map[data->map->height][++i])
 	{
-		j = -1;
-		pos[0] = 0;
-		while (map[i][++j])
-		{
-			if ((i == 0 || i == data->map->height)
-				&& (pos[0] == 0 || pos[0] == IMG_RES * data->map->width))
-				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-					data->walls.edges_tex[1], pos[0], pos[1]);
-			else if (map[i][j] == '1'
-					&& ((i == 0 || i == data->map->height)
-					|| (pos[0] == 0 || pos[0] == IMG_RES * data->map->width)))
-				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-					data->walls.edges_tex[0], pos[0], pos[1]);
-			pos[0] += IMG_RES;
-		}
-		pos[1] += IMG_RES;
+		mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
+			data->walls.edges_tex[0], x, y);
+		x += IMG_RES;
+	}
+	free(map);
+}
+
+void	ft_put_edges_north(char **map, t_program_data *data)
+{
+	int	i;
+	int	x;
+
+	x = 0;
+	i = -1;
+	while (map[0][++i])
+	{
+		mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
+			data->walls.edges_tex[1], x, 0);
+		x += IMG_RES;
 	}
 	free(map);
 }
@@ -102,6 +101,8 @@ void	ft_render_map(t_program_data *data)
 	fd = open(data->map->path, O_RDONLY);
 	read (fd, map_str, (int)map_len);
 	close(fd);
-	ft_put_edges(ft_split(map_str, '\n'), data);
 	ft_put_floor(ft_split(map_str, '\n'), data);
+	ft_put_edges_north(ft_split(map_str, '\n'), data);
+	ft_put_edges_south(ft_split(map_str, '\n'), data);
+
 }
