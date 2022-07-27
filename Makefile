@@ -12,7 +12,7 @@ AR		= ar rc
 CFLAGS 		= -Wall -Wextra -Werror
 SANITIZE 	= -fsanitize=address -g3
 VALGRIND 	= valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
-MINILIB		= -framework openGL -framework AppKit -lmlx
+MINILIB		= -framework openGL -framework AppKit -LLibraries/ -lmlx
 LINUX_FLAGS	= -L.. -L%%/../lib -lXext -lX11 -lm -lbsd
 #---------DIRECTORIES-----------
 SRC_DIR = srcs/

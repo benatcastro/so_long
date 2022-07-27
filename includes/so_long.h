@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 09:39:04 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:24:38 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ typedef struct s_program_data
 	struct s_utils		utils;
 }	t_program_data;
 
-int		ft_key_hooks(int key, void *player_data);
+int		ft_key_hooks(int key, void *program_data);
+/************************Game Logic******************************/
+
+void	ft_check_win(t_program_data *data);
 /************************Mlx Functions******************************/
 
 void	ft_load_textures(t_program_data *data);
@@ -96,7 +99,7 @@ void	ft_put_collectables(t_program_data *data);
 void	ft_put_player(t_program_data *data);
 /************************Move FNCS******************************/
 
-void	ft_move_character(t_character *player, int dir);
+void	ft_move_character(t_program_data *data, int dir);
 /************************Error management************************/
 
 void	ft_uitls_errors(int error_key);
