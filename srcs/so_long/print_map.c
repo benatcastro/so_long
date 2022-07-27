@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/26 05:50:11 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 07:16:50 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,14 @@ static size_t	ft_read_len(char *path)
 	return (i);
 }
 
-void	ft_print_floor(char **map, t_program_data *data)
+void	ft_print_floor(t_program_data *data)
 {
-	int	i;
-	int	j;
-	int	pos[2];
+	int		i;
+	int		j;
+	int		pos[2];
+	char	**map;
 
+	map = data->map->map_str;
 	pos[1] = 0;
 	i = -1;
 	while (map[++i])
@@ -53,15 +55,16 @@ void	ft_print_floor(char **map, t_program_data *data)
 		}
 		pos[1] += IMG_RES;
 	}
-	free (map);
 }
 
-void	ft_print_edges_south(char **map, t_program_data *data)
+void	ft_print_edges_south(t_program_data *data)
 {
-	int	i;
-	int	y;
-	int	x;
+	int		i;
+	int		y;
+	int		x;
+	char	**map;
 
+	map = data->map->map_str;
 	y = IMG_RES * data->map->height + 1;
 	x = 0;
 	i = -1;
@@ -71,14 +74,15 @@ void	ft_print_edges_south(char **map, t_program_data *data)
 			data->walls.edges_tex[0], x, y);
 		x += IMG_RES;
 	}
-	free(map);
 }
 
-void	ft_print_edges_north(char **map, t_program_data *data)
+void	ft_print_edges_north(t_program_data *data)
 {
-	int	i;
-	int	x;
+	int		i;
+	int		x;
+	char	**map;
 
+	map = data->map->map_str;
 	x = 0;
 	i = -1;
 	while (map[0][++i])
@@ -87,7 +91,6 @@ void	ft_print_edges_north(char **map, t_program_data *data)
 			data->walls.edges_tex[1], x, 0);
 		x += IMG_RES;
 	}
-	free(map);
 }
 
 void	ft_render_map(t_program_data *data)
@@ -101,10 +104,13 @@ void	ft_render_map(t_program_data *data)
 	fd = open(data->map->path, O_RDONLY);
 	read (fd, map_str, (int)map_len);
 	close(fd);
-	ft_print_floor(ft_split(map_str, '\n'), data);
-	ft_print_edges_north(ft_split(map_str, '\n'), data);
-	ft_print_edges_south(ft_split(map_str, '\n'), data);
-	ft_print_sides(ft_split(map_str, '\n'), data);
-	ft_print_corners_north(ft_split(map_str, '\n'), data);
-	ft_print_corners_south(ft_split(map_str, '\n'), data);
+	data->player.map_pos = ft_split(map_str, '\n');
+	data->map->map_str = ft_split(map_str, '\n');
+	ft_print_floor(data);
+	ft_print_edges_north(data);
+	ft_print_edges_south(data);
+	ft_print_sides(data);
+	ft_print_corners_north(data);
+	ft_print_corners_south(data);
+	ft_put_collectables(data);
 }

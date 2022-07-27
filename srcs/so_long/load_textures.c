@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_load_images.c                                  :+:      :+:    :+:   */
+/*   load_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/26 04:35:09 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 07:15:45 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ void	ft_load_floor(t_program_data *data)
 	res = IMG_RES;
 	data->floor.tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
 			"textures/floor/white_tile.xpm", &res, &res);
+}
+
+void	ft_load_utils(t_program_data *data)
+{
+	int	res;
+
+	res = IMG_RES;
+	data->utils.collect_tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/blue_test.xpm", &res, &res);
+	data->utils.exit_tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/green_test.xpm", &res, &res);
 }
 
 void	ft_load_walls(t_program_data *data)
@@ -56,4 +67,5 @@ void	ft_load_textures(t_program_data *data)
 	ft_load_walls(data);
 	ft_load_character(data);
 	ft_load_floor(data);
+	ft_load_utils(data);
 }
