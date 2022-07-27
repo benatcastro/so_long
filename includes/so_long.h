@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 07:16:30 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 09:39:04 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ typedef struct s_character
 {
 	void	*tex[5];
 	char	**map_pos;
+	int		pos_index[2];
+	int		collected_items;
 	int		x;
 	int		y;
 }	t_character;
@@ -91,6 +93,7 @@ void	ft_print_sides(t_program_data *data);
 void	ft_print_corners_north(t_program_data *data);
 void	ft_print_corners_south( t_program_data *data);
 void	ft_put_collectables(t_program_data *data);
+void	ft_put_player(t_program_data *data);
 /************************Move FNCS******************************/
 
 void	ft_move_character(t_character *player, int dir);

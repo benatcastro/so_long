@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_movement.c                                    :+:      :+:    :+:   */
+/*   player_logic.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/26 02:12:28 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 09:50:09 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,27 @@ Recieves:
 	1 = South
 	2 = East
 	3 = West
+Pos index[0] = X position on the map Matrix
+Pos index[1] = Y position on the map Matrix
 Output:
 	Changes to position of the character sprite
 */
 void	ft_move_character(t_character *player, int dir)
 {
+	int		x_map;
+	int		y_map;
+	char	**map;
+
+	map = player->map_pos;
+	x_map = player->pos_index[0];
+	y_map = player->pos_index[1];
 	if (dir == 0)
 	{
-		printf("move up\n");
-		player->y -= IMG_RES;
+		if (map[x_map + 1][y_map] != '1')
+		{
+			printf("move up\n");
+			player->y -= IMG_RES;
+		}
 	}
 	if (dir == 1)
 	{
