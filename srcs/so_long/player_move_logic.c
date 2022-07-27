@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 14:29:18 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:51:38 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_print_map(char **map)
 	printf("==========\n");
 }
 
-void	ft_move_up(t_character *player, t_map *s_map)
+void	ft_move_up(t_character *player)
 {
 	int		x_map;
 	int		y_map;
@@ -41,7 +41,7 @@ void	ft_move_up(t_character *player, t_map *s_map)
 	}
 }
 
-void	ft_move_down(t_character *player, t_map *s_map)
+void	ft_move_down(t_character *player)
 {
 	int		x_map;
 	int		y_map;
@@ -60,7 +60,7 @@ void	ft_move_down(t_character *player, t_map *s_map)
 	}
 }
 
-void	ft_move_left(t_character *player, t_map *s_map)
+void	ft_move_left(t_character *player)
 {
 	int		x_map;
 	int		y_map;
@@ -78,7 +78,7 @@ void	ft_move_left(t_character *player, t_map *s_map)
 	}
 }
 
-void	ft_move_right(t_character *player, t_map *s_map)
+void	ft_move_right(t_character *player)
 {
 	int		x_map;
 	int		y_map;
@@ -113,12 +113,12 @@ Output:
 void	ft_move_character(t_program_data *data, int dir)
 {
 	if (dir == 0)
-		ft_move_up(&data->player, data->map);
+		ft_move_up(&data->player);
 	else if (dir == 1)
-		ft_move_down(&data->player, data->map);
+		ft_move_down(&data->player);
 	else if (dir == 2)
-		ft_move_left(&data->player, data->map);
+		ft_move_left(&data->player);
 	else if (dir == 3)
-		ft_move_right(&data->player, data->map);
+		ft_move_right(&data->player);
 	ft_print_map(data->player.map_pos);
 }
