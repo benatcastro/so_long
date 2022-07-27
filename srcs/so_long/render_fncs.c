@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 09:34:02 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:15:53 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_render_frame(void *render_data)
 	if (i == 2)
 		i = 0;
 	ft_render_map(data);
+	ft_put_collectables(data);
 	mlx_put_image_to_window(data->mlx.ptr,
 		data->mlx.win, data->player.tex[i],
 		data->player.x, data->player.y);

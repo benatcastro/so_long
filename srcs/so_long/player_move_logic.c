@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 14:51:38 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:00:48 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,6 @@ void	ft_move_character(t_program_data *data, int dir)
 		ft_move_left(&data->player);
 	else if (dir == 3)
 		ft_move_right(&data->player);
-	ft_print_map(data->player.map_pos);
+	ft_pick_collectable(data);
+	//ft_print_map(data->player.map_pos);
 }

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 14:24:38 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:04:30 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,11 @@ typedef struct s_program_data
 	struct s_utils		utils;
 }	t_program_data;
 
+void	ft_print_map(char **map);
 int		ft_key_hooks(int key, void *program_data);
 /************************Game Logic******************************/
 
+void	ft_pick_collectable(t_program_data *data);
 void	ft_check_win(t_program_data *data);
 /************************Mlx Functions******************************/
 

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 07:16:50 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:13:32 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,4 @@ void	ft_render_map(t_program_data *data)
 	ft_print_sides(data);
 	ft_print_corners_north(data);
 	ft_print_corners_south(data);
-	ft_put_collectables(data);
 }
