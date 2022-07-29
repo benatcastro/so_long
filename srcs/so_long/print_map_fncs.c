@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_map_fncs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 03:51:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 07:13:21 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/29 19:07:28 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ void	ft_print_corners_south(t_program_data *data)
 	{
 		if (i == 0)
 			mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-				data->walls.edges_tex[4], x + 18, y + -11);
+				data->walls.edges_tex[6], x, y);
 		else if (i == data->map->width)
 			mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-				data->walls.edges_tex[5], x, y);
+				data->walls.edges_tex[7], x, y);
 		x += IMG_RES;
 	}
 }
@@ -76,7 +76,7 @@ void	ft_print_corners_north(t_program_data *data)
 	{
 		if (i == 0)
 			mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-				data->walls.edges_tex[4], x + 18, 0 + -11);
+				data->walls.edges_tex[4], x, 0);
 		else if (i == data->map->width)
 			mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
 				data->walls.edges_tex[5], x, 0);

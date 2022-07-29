@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 14:43:02 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/29 19:06:53 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,21 @@ void	ft_load_walls(t_program_data *data)
 	int	res;
 
 	data->walls.edges_tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/edges/edge_north.xpm", &res, &res);
+			"textures/edges/vim_bot_edge.xpm", &res, &res);
 	data->walls.edges_tex[1] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/edges/edge_south.xpm", &res, &res);
+			"textures/edges/vim_top_edge.xpm", &res, &res);
 	data->walls.edges_tex[2] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/edges/edge_east.xpm", &res, &res);
+			"textures/edges/vim_left_edge.xpm", &res, &res);
 	data->walls.edges_tex[3] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/edges/edge_west.xpm", &res, &res);
+			"textures/edges/vim_right_edge.xpm", &res, &res);
 	data->walls.edges_tex[4] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/edges/corner_top_left.xpm", &res, &res);
+			"textures/edges/vim_top_right_corner.xpm", &res, &res);
 	data->walls.edges_tex[5] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/edges/corner_top_right.xpm", &res, &res);
+			"textures/edges/vim_top_left_corner.xpm", &res, &res);
+	data->walls.edges_tex[6] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/edges/vim_bot_left_corner.xpm", &res, &res);
+	data->walls.edges_tex[7] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/edges/vim_bot_right_corner.xpm", &res, &res);
 }
 
 void	ft_load_character(t_program_data *data)
