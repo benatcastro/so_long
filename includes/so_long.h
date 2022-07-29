@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/29 20:15:19 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/29 22:31:33 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_character
 typedef struct s_walls
 {
 	void	*edges_tex[8];
+	void	*walls_tex[1];
 }	t_walls;
 
 typedef struct s_floor
@@ -97,6 +98,8 @@ void	ft_render_map(t_program_data *data);
 void	ft_print_sides(t_program_data *data);
 void	ft_print_corners_north(t_program_data *data);
 void	ft_print_corners_south( t_program_data *data);
+void	ft_print_inside_walls(t_program_data *data);
+void	ft_print_inside_walls_sides(t_program_data *data);
 void	ft_put_collectables(t_program_data *data);
 void	ft_put_player(t_program_data *data);
 /************************Move FNCS******************************/

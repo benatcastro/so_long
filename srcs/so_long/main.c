@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/29 20:53:44 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/29 22:28:35 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int	main(int argc, char **argv)
 		return (0);
 	map.path = argv[1];
 	map = ft_validate_map(map.path);
-
 	map_len = ft_read_len(map.path);
 	map_str = malloc(map_len);
 	fd = open(map.path, O_RDONLY);

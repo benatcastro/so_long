@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/29 20:54:06 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/29 22:35:30 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	ft_render_map(t_program_data *data)
 	ft_print_corners_north(data);
 	ft_print_corners_south(data);
 	ft_print_inside_walls(data);
+	ft_print_inside_walls_sides(data);
 }
