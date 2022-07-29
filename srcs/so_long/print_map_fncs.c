@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 03:51:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/29 22:38:53 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/29 23:01:31 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,44 +38,39 @@ void	ft_print_sides(t_program_data *data)
 void	ft_print_corners_south(t_program_data *data)
 {
 	int		i;
-	int		x;
 	int		y;
 	char	**map;
 
 	map = data->map->map_str;
 	y = IMG_RES * data->map->height;
-	x = 0;
 	i = -1;
 	while (map[data->map->height][++i])
 	{
-		if (i == 0)
+		if (i == 0 && map[data->map->height - 1][i + 1] != '1')
 			mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-				data->walls.edges_tex[6], x, y);
-		else if (i == data->map->width)
+				data->walls.edges_tex[6], i * IMG_RES, y);
+		else if (i == data->map->width
+			&& map[data->map->height - 1][i - 1] != '1')
 			mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-				data->walls.edges_tex[7], x, y);
-		x += IMG_RES;
+				data->walls.edges_tex[7], i * IMG_RES, y);
 	}
 }
 
 void	ft_print_corners_north(t_program_data *data)
 {
 	int		i;
-	int		x;
 	char	**map;
 
 	map = data->map->map_str;
-	x = 0;
 	i = -1;
 	while (map[0][++i])
 	{
-		if (i == 0)
+		if (i == 0 && map[1][i + 1] != '1')
 			mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-				data->walls.edges_tex[4], x, 0);
-		else if (i == data->map->width)
+				data->walls.edges_tex[4], i * IMG_RES, 0);
+		else if (i == data->map->width && map[1][data->map->width - 1] != '1')
 			mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
-				data->walls.edges_tex[5], x, 0);
-		x += IMG_RES;
+				data->walls.edges_tex[5], i * IMG_RES, 0);
 	}
 }
 
