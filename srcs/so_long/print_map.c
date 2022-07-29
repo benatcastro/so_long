@@ -3,35 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 15:13:32 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/29 20:54:06 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static size_t	ft_read_len(char *path)
-{
-	int		rd;
-	int		fd;
-	size_t	i;
-	char	*buffer;
-
-	i = 0;
-	rd = 1;
-	buffer = malloc(1);
-	fd = open (path, O_RDONLY);
-	while (rd != 0)
-	{
-		rd = read(fd, buffer, 1);
-		i++;
-	}
-	free(buffer);
-	close(fd);
-	return (i);
-}
 
 void	ft_print_floor(t_program_data *data)
 {
@@ -95,21 +74,11 @@ void	ft_print_edges_north(t_program_data *data)
 
 void	ft_render_map(t_program_data *data)
 {
-	size_t	map_len;
-	char	*map_str;
-	int		fd;
-
-	map_len = ft_read_len(data->map->path);
-	map_str = malloc(map_len);
-	fd = open(data->map->path, O_RDONLY);
-	read (fd, map_str, (int)map_len);
-	close(fd);
-	data->player.map_pos = ft_split(map_str, '\n');
-	data->map->map_str = ft_split(map_str, '\n');
 	ft_print_floor(data);
 	ft_print_edges_north(data);
 	ft_print_edges_south(data);
 	ft_print_sides(data);
 	ft_print_corners_north(data);
 	ft_print_corners_south(data);
+	ft_print_inside_walls(data);
 }

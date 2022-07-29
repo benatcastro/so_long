@@ -3,14 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 14:21:53 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/29 20:53:44 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static size_t	ft_read_len(char *path)
+{
+	int		rd;
+	int		fd;
+	size_t	i;
+	char	*buffer;
+
+	i = 0;
+	rd = 1;
+	buffer = malloc(1);
+	fd = open (path, O_RDONLY);
+	while (rd != 0)
+	{
+		rd = read(fd, buffer, 1);
+		i++;
+	}
+	free(buffer);
+	close(fd);
+	return (i);
+}
 
 static void	ft_init_window(int width, int height, t_map *map_data)
 {
@@ -18,6 +39,7 @@ static void	ft_init_window(int width, int height, t_map *map_data)
 
 	data.player.collected_items = 0;
 	data.map = map_data;
+	data.player.map_pos = map_data->map_str;
 	data.mlx.ptr = mlx_init();
 	data.mlx.win = mlx_new_window(data.mlx.ptr, width, height, "so_long");
 	ft_load_textures(&data);
@@ -32,10 +54,20 @@ static void	ft_init_window(int width, int height, t_map *map_data)
 int	main(int argc, char **argv)
 {
 	t_map	map;
+	size_t	map_len;
+	char	*map_str;
+	int		fd;
 
 	if (argc != 2)
 		return (0);
 	map.path = argv[1];
 	map = ft_validate_map(map.path);
+
+	map_len = ft_read_len(map.path);
+	map_str = malloc(map_len);
+	fd = open(map.path, O_RDONLY);
+	read (fd, map_str, (int)map_len);
+	close(fd);
+	map.map_str = ft_split(map_str, '\n');
 	ft_init_window((map.width + 1) * IMG_RES, (map.height + 1) * IMG_RES, &map);
 }
