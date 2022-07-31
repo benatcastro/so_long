@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/01 00:40:49 by bena             ###   ########.fr       */
+/*   Updated: 2022/08/01 01:30:45 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "textures.h"
 
 
-/*Direction render player facing East*/
+/*Chooses beetwen avaible images depending on which side is the player facing*/
 static void	ft_render_player(t_program_data *data)
 {
 	if (data->player.direction == 'E')
