@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:54:35 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/31 23:43:15 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/31 23:50:35 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ char	ft_check_tile(t_character *player)
 	if (map[player->pos_index[0]][player->pos_index[1]] == 'C')
 	{
 		player->collected_items++;
-		printf("BARREL\n");
-		//map[player->pos_index[0]][player->pos_index[1]] = "0";
 		return ('0');
 	}
 	else if (map[player->pos_index[0]][player->pos_index[1]] == 'E')
 	{
-		printf("EXIT\n");
+		if (player->collected_items == player->needed_items)
+		{
+			printf("winner winner chicken dinner!\n");
+			exit (EXIT_SUCCESS);
+		}
 		return ('E');
 	}
 	return ('0');

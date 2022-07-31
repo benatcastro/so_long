@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/29 22:28:35 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/31 23:49:04 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	ft_init_window(int width, int height, t_map *map_data)
 {
 	t_program_data	data;
 
+	data.player.needed_items = map_data->collectables;
 	data.player.collected_items = 0;
 	data.map = map_data;
 	data.player.map_pos = map_data->map_str;

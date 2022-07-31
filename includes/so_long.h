@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/31 23:23:42 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/31 23:52:16 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ typedef struct s_character
 {
 	void	*tex[5];
 	char	**map_pos;
+	char	direction;
 	int		pos_index[2];
+	int		needed_items;
 	int		collected_items;
 	int		x;
 	int		y;
