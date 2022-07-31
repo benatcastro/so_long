@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/31 23:52:16 by bena             ###   ########.fr       */
+/*   Updated: 2022/08/01 00:52:29 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_character
 	int		pos_index[2];
 	int		needed_items;
 	int		collected_items;
+	int		movements;
 	int		x;
 	int		y;
 }	t_character;

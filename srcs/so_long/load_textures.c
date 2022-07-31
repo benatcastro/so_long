@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/29 23:39:46 by bena             ###   ########.fr       */
+/*   Updated: 2022/08/01 00:37:11 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_load_utils(t_program_data *data)
 
 	res = IMG_RES;
 	data->utils.collect_tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/objects/barrel_background.xpm", &res, &res);
+			"textures/objects/barrel.xpm", &res, &res);
 	data->utils.exit_tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/objects/locker_background.xpm", &res, &res);
+			"textures/objects/locker.xpm", &res, &res);
 }
 
 void	ft_load_walls(t_program_data *data)
@@ -63,9 +63,11 @@ void	ft_load_character(t_program_data *data)
 
 	res = IMG_RES;
 	data->player.tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/red_test.xpm", &res, &res);
+			"textures/character/biker_W.xpm", &res, &res);
 	data->player.tex[1] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/char_test1.xpm", &res, &res);
+			"textures/character/biker_E.xpm", &res, &res);
+	data->player.tex[2] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/character/biker_N.xpm", &res, &res);
 }
 
 void	ft_load_textures(t_program_data *data)
