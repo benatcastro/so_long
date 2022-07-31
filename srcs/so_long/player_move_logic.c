@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/01 00:40:36 by bena             ###   ########.fr       */
+/*   Updated: 2022/08/01 01:01:28 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	ft_move_up(t_character *player)
 	y_map = player->pos_index[1];
 	if (map[x_map - 1][y_map] != '1')
 	{
-		ft_putstr_fd("move up\n", 1);
+		player->movements++;
+		ft_putnbr_fd(player->movements, 1);
+		ft_putstr_fd(" move up\n", 1);
 		player->y -= IMG_RES;
 		player->pos_index[0]--;
 		player->direction = 'N';
@@ -42,7 +44,9 @@ void	ft_move_down(t_character *player)
 	y_map = player->pos_index[1];
 	if (map[x_map + 1][y_map] != '1')
 	{
-		ft_putstr_fd("move down\n", 1);
+		player->movements++;
+		ft_putnbr_fd(player->movements, 1);
+		ft_putstr_fd(" move down\n", 1);
 		player->y += IMG_RES;
 		player->pos_index[0]++;
 		player->direction = 'S';
@@ -61,7 +65,9 @@ void	ft_move_left(t_character *player)
 	y_map = player->pos_index[1];
 	if (map[x_map][y_map - 1] != '1')
 	{
-		ft_putstr_fd("move left\n", 1);
+		player->movements++;
+		ft_putnbr_fd(player->movements, 1);
+		ft_putstr_fd(" move left\n", 1);
 		player->x -= IMG_RES;
 		player->pos_index[1]--;
 		player->direction = 'E';
@@ -80,7 +86,9 @@ void	ft_move_right(t_character *player)
 	y_map = player->pos_index[1];
 	if (map[x_map][y_map + 1] != '1')
 	{
-		ft_putstr_fd("move right\n", 1);
+		player->movements++;
+		ft_putnbr_fd(player->movements, 1);
+		ft_putstr_fd(" move right\n", 1);
 		player->x += IMG_RES;
 		player->pos_index[1]++;
 		player->direction = 'W';
