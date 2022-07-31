@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   player_collectable_logic.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:54:35 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 15:12:37 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/31 23:43:15 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_pick_collectable(t_program_data *data)
+char	ft_check_tile(t_character *player)
 {
-	int		x;
-	int		y;
 	char	**map;
 
-	map = data->map->map_str;
-	x = data->player.pos_index[1];
-	y = data->player.pos_index[0];
-	if (map[y][x] == 'C')
+	map = player->map_pos;
+	if (map[player->pos_index[0]][player->pos_index[1]] == 'C')
 	{
-		printf("C TILE\n");
-		// ft_print_map(data->map->map_str);
-		// data->player.collected_items++;
-		// map[x][y] = '0';
-		// printf("AFTER\n");
-		// ft_print_map(data->map->map_str);
+		player->collected_items++;
+		printf("BARREL\n");
+		//map[player->pos_index[0]][player->pos_index[1]] = "0";
+		return ('0');
 	}
+	else if (map[player->pos_index[0]][player->pos_index[1]] == 'E')
+	{
+		printf("EXIT\n");
+		return ('E');
+	}
+	return ('0');
 }

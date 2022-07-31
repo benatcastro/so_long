@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/29 22:31:33 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/31 23:23:42 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void	ft_put_player(t_program_data *data);
 /************************Move FNCS******************************/
 
 void	ft_move_character(t_program_data *data, int dir);
+char	ft_check_tile(t_character *player);
 /************************Error management************************/
 
 void	ft_uitls_errors(int error_key);

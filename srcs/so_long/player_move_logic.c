@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   player_move_logic.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 15:00:48 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/31 23:44:57 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_print_map(char **map)
-{
-	int	y;
-
-	y = -1;
-	while (map[++y])
-		printf("%s\n", map[y]);
-	printf("==========\n");
-}
 
 void	ft_move_up(t_character *player)
 {
@@ -33,11 +23,10 @@ void	ft_move_up(t_character *player)
 	y_map = player->pos_index[1];
 	if (map[x_map - 1][y_map] != '1')
 	{
-		printf("move up\n");
+		ft_putstr_fd("move up\n", 1);
 		player->y -= IMG_RES;
-		map[x_map][y_map] = '0';
-		map[x_map - 1][y_map] = 'P';
 		player->pos_index[0]--;
+		map[x_map - 1][y_map] = ft_check_tile(player);
 	}
 }
 
@@ -52,11 +41,10 @@ void	ft_move_down(t_character *player)
 	y_map = player->pos_index[1];
 	if (map[x_map + 1][y_map] != '1')
 	{
-		printf("move up\n");
+		ft_putstr_fd("move down\n", 1);
 		player->y += IMG_RES;
-		map[x_map][y_map] = '0';
-		map[x_map + 1][y_map] = 'P';
 		player->pos_index[0]++;
+		map[x_map + 1][y_map] = ft_check_tile(player);
 	}
 }
 
@@ -71,10 +59,10 @@ void	ft_move_left(t_character *player)
 	y_map = player->pos_index[1];
 	if (map[x_map][y_map - 1] != '1')
 	{
+		ft_putstr_fd("move left\n", 1);
 		player->x -= IMG_RES;
-		map[x_map][y_map] = map[x_map][y_map];
-		map[x_map][y_map - 1] = 'P';
 		player->pos_index[1]--;
+		map[x_map][y_map - 1] = ft_check_tile(player);
 	}
 }
 
@@ -89,11 +77,10 @@ void	ft_move_right(t_character *player)
 	y_map = player->pos_index[1];
 	if (map[x_map][y_map + 1] != '1')
 	{
-		printf("move up\n");
+		ft_putstr_fd("move right\n", 1);
 		player->x += IMG_RES;
-		map[x_map][y_map] = '0';
-		map[x_map][y_map + 1] = 'P';
 		player->pos_index[1]++;
+		map[x_map][y_map + 1] = ft_check_tile(player);
 	}
 }
 
@@ -120,6 +107,4 @@ void	ft_move_character(t_program_data *data, int dir)
 		ft_move_left(&data->player);
 	else if (dir == 3)
 		ft_move_right(&data->player);
-	ft_pick_collectable(data);
-	//ft_print_map(data->player.map_pos);
 }
