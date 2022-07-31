@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/29 21:38:17 by bena             ###   ########.fr       */
+/*   Updated: 2022/07/29 23:39:46 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_load_utils(t_program_data *data)
 
 	res = IMG_RES;
 	data->utils.collect_tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/blue_test.xpm", &res, &res);
+			"textures/objects/barrel_background.xpm", &res, &res);
 	data->utils.exit_tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/green_test.xpm", &res, &res);
+			"textures/objects/locker_background.xpm", &res, &res);
 }
 
 void	ft_load_walls(t_program_data *data)
