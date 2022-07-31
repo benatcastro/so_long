@@ -1,2 +1,2 @@
 # so_long
-so_long project for the 42School
+This project consists on making a small 2D tile game with the 42 school graphic library minilibx
