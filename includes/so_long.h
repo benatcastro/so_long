@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/01 00:52:29 by bena             ###   ########.fr       */
+/*   Updated: 2022/08/01 01:50:21 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 # include "get_next_line_bonus.h"
 
 # define IMG_RES 128
+
+# define FLAMINGO	0x00F8C4F8
+# define ROSE		0x00E2252B
+# define SHAMROCK	0x0003AC13
+# define SEAFOAM	0x003DED97
+# define ORANGE		0x00FCAE1E
+# define YELLOW		0x00FFF866
+# define ARCTIC		0x0082EEFD
+# define CERULEAN	0x000492C2
 
 typedef struct s_mlx_data {
 	char	*path;
@@ -105,6 +114,7 @@ void	ft_print_inside_walls(t_program_data *data);
 void	ft_print_inside_walls_sides(t_program_data *data);
 void	ft_put_collectables(t_program_data *data);
 void	ft_put_player(t_program_data *data);
+void	ft_render_gui(t_program_data *data);
 /************************Move FNCS******************************/
 
 void	ft_move_character(t_program_data *data, int dir);

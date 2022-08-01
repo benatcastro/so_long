@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/01 01:30:45 by bena             ###   ########.fr       */
+/*   Updated: 2022/08/01 01:50:36 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	ft_render_frame(void *render_data)
 	ft_render_map(data);
 	ft_put_collectables(data);
 	ft_render_player(data);
+	ft_render_gui(data);
 	usleep(90000);
 
 	frame++;
