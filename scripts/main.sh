@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source scripts/loading_animations.sh
+source scripts/start.sh
+trap BLA::stop_loading_animation SIGINT
+
 BLA_so_long=(
 					0.1
 					'█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒'
@@ -56,8 +60,8 @@ print_header()
 
 print_header
 BLA::start_loading_animation "${BLA_so_long[@]}"
-make &
-sleep 7.75s
+make>logs
+afplay audio/sega.wav &
 BLA::stop_loading_animation
 clear
 check=0
@@ -70,13 +74,11 @@ do
 	case "$answear" in
 		1)
 		clear
-		make run
+		map_selector
 		check=1
 		;;
 		2)
-		clear
-		afplay audio/main_theme.wav &
-		make run
+		map_selector
 		check=1
 		;;
 		q)
@@ -87,4 +89,3 @@ do
 done
 
 
-#pgrep so_long | wc -l | awk '{print $1}'
