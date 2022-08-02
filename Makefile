@@ -7,7 +7,7 @@ GNL 		= gnl
 PRINTF 		= ft_printf
 #---------GCC and FLAGS----------
 
-CC  		= gcc
+CC  		= gcc -O2
 AR			= ar rc
 CFLAGS 		= -Wall -Wextra -Werror -g3
 SANITIZE 	= -fsanitize=address -g3
@@ -88,7 +88,7 @@ mk_dirs:
 	@mkdir -p $(OBJ_DIR)
 
 minilibx: mk_dirs
-	@make -s --no-print-directory -C srcs/minilibx
+	@make -s --no-print-directory -C srcs/minilibx 2>logs
 
 minilibx_linux: mk_dirs
 	@make -s --no-print-directory -C srcs/minilibx-linux
@@ -115,6 +115,7 @@ clean:
 	@make clean -C srcs/minilibx-linux
 	@rm -rf $(LIB_DIR)$(LIB_NAME)
 	@rm -rf $(NAME)
+	@rm logs
 	@clear
 	@echo "Clean done"
 
