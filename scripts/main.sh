@@ -45,36 +45,18 @@ HEADER="
 |_______||_______||_____| |_______||_______||_|  |__||_______|
 "
 
-declare -a BLA_active_loading_animation
 
-BLA::play_loading_animation_loop() {
-  while true ; do
-	for frame in "${BLA_active_loading_animation[@]}" ; do
-		printf "\r\t    %s" "${frame}"
-		sleep "${BLA_loading_animation_frame_interval}"
-	done
-  done
+
+
+print_header()
+{
+	printf "%s\n\n" "${HEADER}"
+	printf "\t\t        LOADING\n"
 }
 
-BLA::start_loading_animation() {
-  BLA_active_loading_animation=( "${@}" )
-  # Extract the delay between each frame from array BLA_active_loading_animation
-  BLA_loading_animation_frame_interval="${BLA_active_loading_animation[0]}"
-  unset "BLA_active_loading_animation[0]"
-  tput civis # Hide the terminal cursor
-  BLA::play_loading_animation_loop &
-  BLA_loading_animation_pid="${!}"
-}
-
-BLA::stop_loading_animation() {
-  kill "${BLA_loading_animation_pid}" &> /dev/null
-  printf "\n"
-  tput cnorm # Restore the terminal cursor
-}
-
-printf "%s\n\n" "${HEADER}"
-printf "\t\t        LOADING\n"
+print_header
 BLA::start_loading_animation "${BLA_so_long[@]}"
+make &
 sleep 7.75s
 BLA::stop_loading_animation
 clear
@@ -93,8 +75,8 @@ do
 		;;
 		2)
 		clear
-		make run
 		afplay audio/main_theme.wav &
+		make run
 		check=1
 		;;
 		q)
@@ -105,8 +87,4 @@ do
 done
 
 
-
-
-
-
-
+#pgrep so_long | wc -l | awk '{print $1}'
