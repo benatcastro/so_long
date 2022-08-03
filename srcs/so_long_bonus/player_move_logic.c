@@ -6,11 +6,11 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 20:32:28 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/03 20:59:34 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_move_up(t_program_data *data)
 {

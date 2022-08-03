@@ -6,11 +6,11 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 19:32:43 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/03 21:00:10 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 #include "textures.h"
 #include "limits.h"
 

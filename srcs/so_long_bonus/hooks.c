@@ -6,18 +6,17 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 14:24:10 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/03 20:58:50 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_key_hooks(int key, void *program_data)
 {
 	t_program_data	*data;
 
 	data = program_data;
-	//printf("KEY (%d)\n", key);
 	if (key == ESC)
 		exit (0);
 	if (key == W)

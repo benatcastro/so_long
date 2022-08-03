@@ -6,11 +6,11 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 17:38:29 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 19:36:48 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/03 20:59:41 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_map_errors(int error_key, void *free_ptr)
 {
