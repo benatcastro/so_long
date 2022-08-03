@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/01 01:50:21 by bena             ###   ########.fr       */
+/*   Updated: 2022/08/03 19:23:38 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,6 @@ typedef struct s_program_data
 	struct s_utils		utils;
 }	t_program_data;
 
-void	ft_print_map(char **map);
-int		ft_key_hooks(int key, void *program_data);
 /************************Game Logic******************************/
 
 void	ft_pick_collectable(t_program_data *data);
@@ -100,6 +98,7 @@ void	ft_check_win(t_program_data *data);
 /************************Mlx Functions******************************/
 
 void	ft_load_textures(t_program_data *data);
+int		ft_key_hooks(int key, void *program_data);
 /************************Move FNCS******************************/
 
 t_map	ft_validate_map(char *map_path);
@@ -107,6 +106,7 @@ t_map	ft_validate_map(char *map_path);
 
 int		ft_render_frame(void *render_data);
 void	ft_render_map(t_program_data *data);
+void	ft_print_map(char **map);
 void	ft_print_sides(t_program_data *data);
 void	ft_print_corners_north(t_program_data *data);
 void	ft_print_corners_south( t_program_data *data);
@@ -122,6 +122,7 @@ char	ft_check_tile(t_character *player);
 /************************Error management************************/
 
 void	ft_uitls_errors(int error_key);
-void	ft_map_errors(int error_key);
+void	ft_map_errors(int error_key, void *free_ptr);
+void	ft_free_data(t_program_data *data);
 
 #endif

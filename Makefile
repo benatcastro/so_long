@@ -24,36 +24,18 @@ LINUX_INC = -I includes/linux_includes
 DARWIN_INC = -I includes/darwin_includes
 LIB_DIR = libraries/
 
-
-
-#---------------PROJECT_FILES---------------------
-FILES_SO_LONG = hooks			\
-				main			\
-				map_checker		\
-				mlx_load_images	\
-				print_errors	\
-				render_fncs		\
-
 #---------------PREFIX and SUFFIX-----------------
 
 SRC = $(addprefix $(PROJECT_DIR), $(addsuffix .c,  $(FILES_SO_LONG)))
 OBJ = $(addprefix $(PROJECT_OBJS), $(addsuffix .o, $(FILES_SO_LONG)))
 
-all: 42lib $(UNAME)
-#$(TEST): $(OBJ)
-#	@echo "hey"
+shell:
+	@bash scripts/main.sh
 
-#$(PROJECT_OBJS)%.o  : $(SRC)%.c
-#	echo "heyd"
-#	(CC) $(CFLAGS) $(INCLUDES) $(LINUX_FLAGS) $(INC_DIR) $(LINUX_INC) $(LIB_DIR)*.a -c $< -o $@
-#	@bash scripts/main
+all: 42lib $(UNAME)
 
 Linux: minilibx_linux
 
-#$(NAME): $(OBJ)
-#	$(PROJECT_OBJS): $(SRC)
-#		$(CC) $(CFLAGS) $(INCLUDES) $(LINUX_FLAGS) $(INC_DIR) $(LINUX_INC) $(LIB_DIR)*.a -c $< -o $@
-#	echo $(SRC_SO_LONG)
 	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:56:49 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 06:43:39 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/03 19:18:23 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ static void	ft_parse_walls(t_map *map_data, char *map_line)
 	i = -1;
 	len = ft_len_to_char(map_line, '\n');
 	if (len != map_data->width && line != 0)
-		ft_map_errors(3);
+		ft_map_errors(3, map_line);
 	while (map_line[++i] && map_line[i] != '\n')
 	{
-		if (!ft_is_in_set(map_line[i], "10PCEX"))
-			ft_map_errors(4);
+		if (!ft_is_in_set(map_line[i], "10PCE"))
+			ft_map_errors(4, map_line);
 		if (line == 0 || line == map_data->height)
 		{
 			if (map_line[i] != '1')
-				ft_map_errors(1);
+				ft_map_errors(1, map_line);
 		}
 		if (map_line[0] != '1' || map_line[len] != '1')
-			ft_map_errors(2);
+			ft_map_errors(2, map_line);
 	}
 	if (line == 0)
 		map_data->width = len;
@@ -98,7 +98,7 @@ static void	ft_get_map_height(t_map *map_data)
 		free(map_line);
 	}
 	if (map_data->height <= 0)
-		ft_map_errors(0);
+		ft_map_errors(0, map_line);
 }
 
 /*Splits the map in lines and calls to the functions needed to parse the lines*/
