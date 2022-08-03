@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 19:23:38 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/03 20:43:02 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,11 +118,10 @@ void	ft_render_gui(t_program_data *data);
 /************************Move FNCS******************************/
 
 void	ft_move_character(t_program_data *data, int dir);
-char	ft_check_tile(t_character *player);
+char	ft_check_tile(t_program_data *data);
 /************************Error management************************/
 
 void	ft_uitls_errors(int error_key);
 void	ft_map_errors(int error_key, void *free_ptr);
-void	ft_free_data(t_program_data *data);
 
 #endif

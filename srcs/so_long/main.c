@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 19:21:17 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/03 20:43:06 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ static size_t	ft_read_len(char *path)
 	free(buffer);
 	close(fd);
 	return (i);
-}
-
-void	ft_free_data(t_program_data *data)
-{
-	free(data->map->map_str);
-	free(data->player.map_pos);
-	free(data->map->map_str);
 }
 
 static void	ft_init_window(int width, int height, t_map *map_data)

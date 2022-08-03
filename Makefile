@@ -7,7 +7,7 @@ GNL 		= gnl
 PRINTF 		= ft_printf
 #---------GCC and FLAGS----------
 
-CC  		= gcc -O2
+CC  		= gcc
 AR			= ar rc
 CFLAGS 		= -Wall -Wextra -Werror -g3
 SANITIZE 	= -fsanitize=address -g3
@@ -28,9 +28,6 @@ LIB_DIR = libraries/
 
 SRC = $(addprefix $(PROJECT_DIR), $(addsuffix .c,  $(FILES_SO_LONG)))
 OBJ = $(addprefix $(PROJECT_OBJS), $(addsuffix .o, $(FILES_SO_LONG)))
-
-shell:
-	@bash scripts/main.sh
 
 all: 42lib $(UNAME)
 
@@ -101,11 +98,11 @@ clean:
 	@clear
 	@echo "Clean done"
 
-clean_test:
-	@rm -rf so_long
-
 fclean: clean
 	@rm -rf $(OBJ_DIR)
 	@rm -rf $(LIB_DIR)
+	@rm -rf so_long
 	@echo "Fclean done"
-re: clean_test all
+
+re: fclean all
+

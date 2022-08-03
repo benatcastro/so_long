@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_collectable_logic.c                         :+:      :+:    :+:   */
+/*   check_tile.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:54:35 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/31 23:50:35 by bena             ###   ########.fr       */
+/*   Updated: 2022/08/03 20:42:35 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	ft_check_tile(t_character *player)
+char	ft_check_tile(t_program_data *data)
 {
-	char	**map;
+	char		**map;
+	t_character	*player;
 
+	player = &data->player;
 	map = player->map_pos;
 	if (map[player->pos_index[0]][player->pos_index[1]] == 'C')
 	{
@@ -26,8 +28,9 @@ char	ft_check_tile(t_character *player)
 	{
 		if (player->collected_items == player->needed_items)
 		{
-			printf("winner winner chicken dinner!\n");
-			exit (EXIT_SUCCESS);
+			ft_putstr_fd("🏆WIN🏆\n", 1);
+			free(data->map->map_str);
+			exit(EXIT_SUCCESS);
 		}
 		return ('E');
 	}
