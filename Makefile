@@ -17,17 +17,14 @@ LINUX_FLAGS	= -L.. -L%%/../lib -lXext -lX11 -lm -lbsd
 #---------DIRECTORIES-----------
 SRC_DIR = srcs/
 PROJECT_DIR = ./srcs/so_long/
+BONUS_SRC = ./srcs/so_long_bonus/
 PROJECT_OBJS = $(OBJ_DIR)$(NAME)_objs/
 OBJ_DIR = objs/
 INC_DIR = -I includes/
+BONUS_INC = -I includes_bonus/
 LINUX_INC = -I includes/linux_includes
 DARWIN_INC = -I includes/darwin_includes
 LIB_DIR = libraries/
-
-#---------------PREFIX and SUFFIX-----------------
-
-SRC = $(addprefix $(PROJECT_DIR), $(addsuffix .c,  $(FILES_SO_LONG)))
-OBJ = $(addprefix $(PROJECT_OBJS), $(addsuffix .o, $(FILES_SO_LONG)))
 
 all: 42lib $(UNAME)
 
@@ -40,14 +37,23 @@ Darwin: minilibx 42lib
 	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) $(DARWIN_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 
+bonus:
+	@$(CC) $(CFLAGS) $(SANITIZE) $(MINILIB) $(BONUS_SRC)*.c $(BONUS_INC) $(DARWIN_INC) -o $(NAME)_bonus $(LIB_DIR)*
+	@echo "Bonus Darwin"
+
+bonus_linux:
+	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(BONUS_INC) -o $(NAME) $(LIB_DIR)*
+	@echo "Bonus Linux"
+
 sanitize: re
 ifeq ($(UNAME), Linux)
-	@$(CC) $(CFLAGS) $(SANITIZE) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
+	@$(CC) $(CFLAGS) $(SANITIZE) $(LINUX_FLAGS) $(BONUS_SRC)*.c $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "Sanitize Linux"
 else
-	@$(CC) $(CFLAGS) $(SANITIZE) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) $(DARWIN_INC) -o $(NAME) $(LIB_DIR)*
+	@$(CC) $(CFLAGS) $(SANITIZE) $(MINILIB) $(BONUS_SRC)*.c $(INC_DIR) $(DARWIN_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "Sanitize Darwin"
 endif
+
 run:
 	@clear
 	@./$(NAME) maps/map1.ber
@@ -93,7 +99,6 @@ clean:
 	@make clean -C srcs/minilibx
 	@make clean -C srcs/minilibx-linux
 	@rm -rf $(LIB_DIR)$(LIB_NAME)
-	@rm -rf $(NAME)
 	@rm logs
 	@clear
 	@echo "Clean done"
@@ -101,7 +106,8 @@ clean:
 fclean: clean
 	@rm -rf $(OBJ_DIR)
 	@rm -rf $(LIB_DIR)
-	@rm -rf so_long
+	@rm so_long
+	@rm so_long_bonus
 	@echo "Fclean done"
 
 re: fclean all
