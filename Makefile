@@ -38,7 +38,7 @@ Darwin: 42lib minilibx
 	@echo "$(BLUE)🎮So_long for Darwin Compiled🎮"
 	@echo "$(PURPLE)( つ ◕_◕ )つGiv 125( つ ◕_◕ )つ$(RESET)"
 
-bonus:
+bonus: 42lib minilibx mk_dirs
 	@$(CC) $(CFLAGS) $(SANITIZE) $(MINILIB) $(BONUS_SRC)*.c $(BONUS_INC) $(DARWIN_INC) -o execs/$(NAME)_bonus $(LIB_DIR)*
 	@echo "$(BLUE)🎮So_long bonus for Darwin Compiled🎮"
 	@echo "$(PURPLE)( つ ◕_◕ )つGiv 125( つ ◕_◕ )つ$(RESET)"
@@ -60,6 +60,9 @@ run: all
 	@clear
 	@./execs/$(NAME) maps/map1.ber
 
+run_bonus: bonus
+	@clear
+	@./execs/$(NAME)_bonus maps/map1.ber
 valgrind: all
 	@clear
 	@$(VALGRIND) ./$(NAME) maps/map1.ber
@@ -78,6 +81,7 @@ mk_dirs:
 minilibx: mk_dirs
 	@make -s --no-print-directory -C srcs/minilibx 2>logs
 	@echo "$(GREEN)Minilib Darwin Compiled 🎨$(RESET)"
+
 minilibx_linux: mk_dirs
 	@make -s --no-print-directory -C srcs/minilibx-linux
 	@echo "$(GREEN)Minilib Linux Compiled 🎨$(RESET)"

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 20:43:02 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 03:55:46 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "libft.h"
 # include "keys.h"
@@ -99,6 +99,7 @@ void	ft_check_win(t_program_data *data);
 
 void	ft_load_textures(t_program_data *data);
 int		ft_key_hooks(int key, void *program_data);
+int		ft_mouse_hooks(int key, void *program_data);
 /************************Move FNCS******************************/
 
 t_map	ft_validate_map(char *map_path);
@@ -120,7 +121,7 @@ void	ft_render_gui(t_program_data *data);
 void	ft_move_character(t_program_data *data, int dir);
 char	ft_check_tile(t_program_data *data);
 /************************Error management************************/
-
+int		ft_exit_game(void *p_data);
 void	ft_uitls_errors(int error_key);
 void	ft_map_errors(int error_key, void *free_ptr);
 
