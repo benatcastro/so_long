@@ -33,13 +33,15 @@ Linux: minilibx_linux
 	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(LINUX_INC) -o $(NAME) $(LIB_DIR)*
 	@echo "So Long Compiled"
 
-Darwin: minilibx 42lib
-	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) $(DARWIN_INC) -o $(NAME) $(LIB_DIR)*
-	@echo "So Long Compiled"
+Darwin: 42lib minilibx
+	@$(CC) $(CFLAGS) $(MINILIB) $(PROJECT_DIR)*.c $(INC_DIR) $(DARWIN_INC) -o execs/$(NAME) $(LIB_DIR)*
+	@echo "$(BLUE)🎮So_long for Darwin Compiled🎮"
+	@echo "$(PURPLE)( つ ◕_◕ )つGiv 125( つ ◕_◕ )つ$(RESET)"
 
 bonus:
-	@$(CC) $(CFLAGS) $(SANITIZE) $(MINILIB) $(BONUS_SRC)*.c $(BONUS_INC) $(DARWIN_INC) -o $(NAME)_bonus $(LIB_DIR)*
-	@echo "Bonus Darwin"
+	@$(CC) $(CFLAGS) $(SANITIZE) $(MINILIB) $(BONUS_SRC)*.c $(BONUS_INC) $(DARWIN_INC) -o execs/$(NAME)_bonus $(LIB_DIR)*
+	@echo "$(BLUE)🎮So_long bonus for Darwin Compiled🎮"
+	@echo "$(PURPLE)( つ ◕_◕ )つGiv 125( つ ◕_◕ )つ$(RESET)"
 
 bonus_linux:
 	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(PROJECT_DIR)*.c $(INC_DIR) $(BONUS_INC) -o $(NAME) $(LIB_DIR)*
@@ -65,32 +67,33 @@ valgrind: all
 42lib: libft gnl
 	@$(AR) $(LIB_DIR)$(LIB_NAME) $(OBJ_DIR)*.o
 	@ranlib $(LIB_DIR)$(LIB_NAME)
-	@echo "42 Lib Compiled"
+	@echo "$(GREEN)42 Lib Compiled 📚$(RESET)"
 
 mk_dirs:
 	@mkdir -p $(LIB_DIR)
 	@mkdir -p $(PROJECT_OBJS)
 	@mkdir -p $(OBJ_DIR)
+	@mkdir -p execs/
 
 minilibx: mk_dirs
 	@make -s --no-print-directory -C srcs/minilibx 2>logs
-
+	@echo "$(GREEN)Minilib Darwin Compiled 🎨$(RESET)"
 minilibx_linux: mk_dirs
 	@make -s --no-print-directory -C srcs/minilibx-linux
-	@echo "Minilib Linux Compiled"
+	@echo "$(GREEN)Minilib Linux Compiled 🎨$(RESET)"
 
 libft: mk_dirs
 	@make -s --no-print-directory -C srcs/libft
-	@echo "Libft Compiled"
+	@echo "$(GREEN)Libft Compiled 📚$(RESET)"
 
 printf: mk_dirs libft
 	@make -s --no-print-directory -C srcs/ft_printf
 	@clear
-	@echo "Printf Compiled"
+	@echo "Printf Compiled 📚"
 
 gnl: mk_dirs
 	@make -s --no-print-directory -C srcs/gnl
-	@echo "GNL Compiled"
+	@echo "$(GREEN)GNL Compiled 📚$(RESET)"
 
 clean:
 	@make clean -C srcs/libft
@@ -101,14 +104,22 @@ clean:
 	@rm -rf $(LIB_DIR)$(LIB_NAME)
 	@rm logs
 	@clear
-	@echo "Clean done"
+	@echo "$(YELLOW)Clean done 🗑️$(RESET)"
 
 fclean: clean
 	@rm -rf $(OBJ_DIR)
 	@rm -rf $(LIB_DIR)
-	@rm so_long
-	@rm so_long_bonus
-	@echo "Fclean done"
+	@rm -rf execs/
+	@echo "$(YELLOW)Fclean done 🗑️$(RESET)"
 
 re: fclean all
 
+BLACK		:= $(shell tput -Txterm setaf 0)
+RED			:= $(shell tput -Txterm setaf 1)
+GREEN		:= $(shell tput -Txterm setaf 2)
+YELLOW		:= $(shell tput -Txterm setaf 3)
+LIGHTPURPLE	:= $(shell tput -Txterm setaf 4)
+PURPLE		:= $(shell tput -Txterm setaf 5)
+BLUE		:= $(shell tput -Txterm setaf 6)
+WHITE		:= $(shell tput -Txterm setaf 7)
+RESET		:= $(shell tput -Txterm sgr0)
