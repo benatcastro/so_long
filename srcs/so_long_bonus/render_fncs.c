@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 11:49:13 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:10:30 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ int	ft_render_frame(void *render_data)
 	ft_enemies_move_logic(data);
 	ft_enemies_idle_status(data);
 	ft_render_gui(data);
+	if (data->map->map_str[data->player.pos_index[0]]
+		[data->player.pos_index[1]] == 'X')
+	{
+		ft_putstr_fd("💀You Died💀", 1);
+		ft_exit_game(data);
+	}
 	if (data->tick == INT_MAX)
 		data->tick = 0;
 	data->tick++;

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 12:02:57 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:12:14 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define IMG_RES 			128
 # define TICKS_PER_IMG		10
 # define SPAWN_RATE			4
-# define MOVE_RATE			4
+# define MOVE_RATE			100
 
 # define FLAMINGO	0x00F8C4F8
 # define ROSE		0x00E2252B
