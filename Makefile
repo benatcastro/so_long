@@ -63,6 +63,7 @@ run: all
 run_bonus: bonus
 	@clear
 	@./execs/$(NAME)_bonus maps/bonus_map.ber
+
 valgrind: all
 	@clear
 	@$(VALGRIND) ./$(NAME) maps/map1.ber

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 04:04:36 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 06:02:12 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static void	ft_render_gui(t_program_data *data)
 
 int	ft_render_frame(void *render_data)
 {
-	static int		frame;
 	t_program_data	*data;
 
 	data = render_data;
@@ -48,8 +47,7 @@ int	ft_render_frame(void *render_data)
 	ft_put_collectables(data);
 	ft_render_player(data);
 	ft_render_gui(data);
-	if (frame == INT_MAX)
-		frame = 0;
-	frame++;
-	return (frame);
+	if (data->tick == INT_MAX)
+		data->tick = 0;
+	return (data->tick);
 }

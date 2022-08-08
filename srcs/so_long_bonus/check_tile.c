@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:54:35 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 03:53:42 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 05:58:54 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,14 @@ char	ft_check_tile(t_program_data *data)
 		if (player->collected_items == player->needed_items)
 		{
 			ft_putstr_fd("🏆WIN🏆\n", 1);
-			free(data->map->map_str);
-			exit(EXIT_SUCCESS);
+			ft_exit_game(data);
 		}
 		return ('E');
+	}
+	else if (map[player->pos_index[0]][player->pos_index[1]] == 'X')
+	{
+		ft_putstr_fd("💀You Died💀", 1);
+		ft_exit_game(data);
 	}
 	return ('0');
 }
