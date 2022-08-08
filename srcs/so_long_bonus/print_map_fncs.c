@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print_map_fncs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bena <bena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 03:51:52 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 20:59:49 by becastro         ###   ########.fr       */
+/*   Updated: 2022/07/29 23:01:31 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "so_long.h"
 
 void	ft_print_sides(t_program_data *data)
 {

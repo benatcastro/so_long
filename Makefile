@@ -56,9 +56,9 @@ else
 	@echo "Sanitize Darwin"
 endif
 
-run:
+run: all
 	@clear
-	@./$(NAME) maps/map1.ber
+	@./execs/$(NAME) maps/map1.ber
 
 valgrind: all
 	@clear

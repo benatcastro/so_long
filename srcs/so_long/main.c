@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 21:23:05 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 02:55:43 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,16 @@ static void	ft_init_window(int width, int height, t_map *map_data)
 	ft_render_map(&data);
 	ft_put_player(&data);
 	mlx_key_hook(data.mlx.win, ft_key_hooks, &data);
-	mlx_hook(data.mlx.win, 17, 1L << 17, ft_key_hooks, &data);
+	mlx_hook(data.mlx.win, 17, 0, ft_exit_game, &data);
 	mlx_loop_hook(data.mlx.ptr, ft_render_frame, &data);
 	mlx_loop(data.mlx.ptr);
 }
 
-void	ft_exit_game(t_program_data *data)
+int	ft_exit_game(void *p_data)
 {
+	t_program_data	*data;
+
+	data = p_data;
 	free(data->map->map_str);
 	exit(EXIT_SUCCESS);
 }

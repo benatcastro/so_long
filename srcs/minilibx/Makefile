@@ -33,7 +33,6 @@ all: $(NAME)
 $(NAME) : $(OBJF) $(OBJ_C) $(OBJ_M)
 	@$(AR) $(NAME) $(OBJ_C) $(OBJ_M)
 	@ranlib $(NAME)
-	@echo Minilib compiled
 $(OBJ_DIR)%.o: $(SRC_DIR_C)%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CC_FLAGS) $(INCLUDES) -c $< -o $@

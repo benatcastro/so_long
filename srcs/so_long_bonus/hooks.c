@@ -6,19 +6,20 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 20:58:50 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 02:13:41 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "so_long.h"
 
 int	ft_key_hooks(int key, void *program_data)
 {
 	t_program_data	*data;
 
+	printf("key (%d)\n", key);
 	data = program_data;
-	if (key == ESC)
-		exit (0);
+	if (key == ESC || key == CLOSE_BUTTON)
+		ft_exit_game(data);
 	if (key == W)
 		ft_move_character(data, 0);
 	if (key == S)
@@ -27,5 +28,16 @@ int	ft_key_hooks(int key, void *program_data)
 		ft_move_character(data, 2);
 	if (key == D)
 		ft_move_character(data, 3);
+	return (key);
+}
+
+int	ft_mouse_hooks(int key, void *program_data)
+{
+	printf("Mouse hook (%d)", key);
+	t_program_data	*data;
+
+	data = program_data;
+	if (key == 0)
+		ft_exit_game(data);
 	return (key);
 }
