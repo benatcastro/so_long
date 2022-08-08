@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 08:30:10 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 09:52:37 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ static void	ft_render_gui(t_program_data *data)
 	mlx_string_put(data->mlx.ptr, data->mlx.win, 10, 20, ARCTIC, "Movements: ");
 	mlx_string_put(data->mlx.ptr, data->mlx.win, 80, 20, ARCTIC,
 		ft_itoa(data->player.movements));
+	mlx_string_put(data->mlx.ptr, data->mlx.win, 10, 35, ARCTIC, "Items: ");
+	mlx_string_put(data->mlx.ptr, data->mlx.win, 60, 35, ARCTIC,
+		ft_itoa(data->player.collected_items));
+	mlx_string_put(data->mlx.ptr, data->mlx.win, 70, 35, ARCTIC, "/");
+	mlx_string_put(data->mlx.ptr, data->mlx.win, 78, 35, ARCTIC,
+		ft_itoa(data->player.needed_items));
 }
 
 int	ft_render_frame(void *render_data)

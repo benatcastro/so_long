@@ -101,6 +101,7 @@ gnl: mk_dirs
 	@echo "$(GREEN)GNL Compiled 📚$(RESET)"
 
 norme:
+	@clear
 	@norminette srcs/so_long & norminette srcs/so_long_bonus
 	@norminette includes/textures.h & norminette includes/so_long.h & includes/darwin_includes/keys.h
 	@norminette srcs/so_long & norminette srcs/so_long_bonus

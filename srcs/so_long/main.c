@@ -6,11 +6,24 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 02:55:43 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:22:56 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	ft_check_map_name(char *path)
+{
+	size_t	len;
+
+	len = ft_strlen(path);
+	path += len - 4;
+	if (ft_strncmp(path, ".ber", 4))
+	{
+		ft_putstr_fd("Invalid path extension ❌", 1);
+		exit(EXIT_FAILURE);
+	}
+}
 
 static size_t	ft_read_len(char *path)
 {
@@ -71,6 +84,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (0);
+	ft_check_map_name(argv[1]);
 	map.path = argv[1];
 	map = ft_validate_map(map.path);
 	map_len = ft_read_len(map.path);

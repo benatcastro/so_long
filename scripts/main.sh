@@ -60,9 +60,9 @@ print_header()
 
 print_header
 BLA::start_loading_animation "${BLA_so_long[@]}"
-make>logs
-make bonus>logs
 afplay audio/sega.wav &
+make>logs & make bonus>logs
+make bonus > logs
 BLA::stop_loading_animation
 clear
 check=0

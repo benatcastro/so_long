@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 03:55:57 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 09:43:09 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_key_hooks(int key, void *program_data)
 	t_program_data	*data;
 
 	data = program_data;
-	if (key == ESC || key == CLOSE_BUTTON)
+	if (key == ESC)
 		ft_exit_game(data);
 	if (key == W)
 		ft_move_character(data, 0);
