@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 10:22:50 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 11:00:13 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static void	ft_init_window(int width, int height, t_map *map_data)
 	ft_load_textures(&data);
 	ft_render_map(&data);
 	ft_put_player(&data);
+	ft_spawn_enemies(&data);
 	mlx_key_hook(data.mlx.win, ft_key_hooks, &data);
 	mlx_hook(data.mlx.win, 17, 0, ft_exit_game, &data);
 	mlx_loop_hook(data.mlx.ptr, ft_render_frame, &data);

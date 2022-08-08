@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 06:48:55 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 06:29:02 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 11:20:22 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void	ft_populate_map(t_program_data *data)
 				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
 					data->utils.exit_tex[0], j * IMG_RES, i * IMG_RES);
 			if (map[i][j] == 'X')
-				ft_render_enemies(data, j * IMG_RES, i * IMG_RES);
+				mlx_put_image_to_window(data->mlx.ptr, data->mlx.win,
+					data->enemies.punk.idle_tex[data->enemies.punk.status],
+					j * IMG_RES, i * IMG_RES);
 		}
 	}
 }

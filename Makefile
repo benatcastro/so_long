@@ -26,7 +26,7 @@ LINUX_INC = -I includes/linux_includes
 DARWIN_INC = -I includes/darwin_includes
 LIB_DIR = libraries/
 
-all: 42lib $(UNAME)
+all: 42lib $(UNAME) norme
 
 Linux: minilibx_linux
 

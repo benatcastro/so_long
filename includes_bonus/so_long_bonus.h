@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 07:56:57 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:45:00 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ typedef struct s_program_data
 
 /************************Game Logic******************************/
 
+void	ft_spawn_enemies(t_program_data *data);
 void	ft_populate_map(t_program_data *data);
 void	ft_check_win(t_program_data *data);
 /************************Mlx Functions******************************/
