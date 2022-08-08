@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 04:00:41 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 05:43:53 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,17 @@ typedef struct s_character
 	int		y;
 }	t_character;
 
+typedef struct s_punk
+{
+	int		x;
+	int		y;
+	int		status;
+	void	*idle_tex[4];
+}	t_punk;
+typedef struct s_enemies
+{
+	t_punk	punk;
+}	t_enemies;
 typedef struct s_walls
 {
 	void	*edges_tex[8];
@@ -89,6 +100,7 @@ typedef struct s_program_data
 	struct s_walls		walls;
 	struct s_floor		floor;
 	struct s_utils		utils;
+	struct s_enemies	enemies;
 }	t_program_data;
 
 /************************Game Logic******************************/
@@ -96,7 +108,7 @@ typedef struct s_program_data
 void	ft_pick_collectable(t_program_data *data);
 void	ft_check_win(t_program_data *data);
 /************************Mlx Functions******************************/
-
+void	ft_load_player(t_program_data *data);
 void	ft_load_textures(t_program_data *data);
 int		ft_key_hooks(int key, void *program_data);
 int		ft_mouse_hooks(int key, void *program_data);

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:56:49 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 03:54:07 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 05:48:13 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_parse_walls(t_map *map_data, char *map_line)
 		ft_map_errors(3, map_line);
 	while (map_line[++i] && map_line[i] != '\n')
 	{
-		if (!ft_is_in_set(map_line[i], "10PCE"))
+		if (!ft_is_in_set(map_line[i], "10PCEX"))
 			ft_map_errors(4, map_line);
 		if (line == 0 || line == map_data->height)
 		{

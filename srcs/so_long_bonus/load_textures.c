@@ -6,14 +6,14 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 04:10:45 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 05:43:22 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "textures.h"
 #include "so_long_bonus.h"
 
-void	ft_load_utils(t_program_data *data)
+static void	ft_load_utils(t_program_data *data)
 {
 	int	res;
 
@@ -24,7 +24,7 @@ void	ft_load_utils(t_program_data *data)
 			"textures/objects/locker.xpm", &res, &res);
 }
 
-void	ft_load_tiles(t_program_data *data)
+static void	ft_load_tiles(t_program_data *data)
 {
 	int	res;
 
@@ -50,22 +50,9 @@ void	ft_load_tiles(t_program_data *data)
 			"textures/tiles/industrial_floor.xpm", &res, &res);
 }
 
-void	ft_load_character(t_program_data *data)
-{
-	int			res;
-
-	res = IMG_RES;
-	data->player.tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/character/biker_W.xpm", &res, &res);
-	data->player.tex[1] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/character/biker_E.xpm", &res, &res);
-	data->player.tex[2] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/character/biker_N.xpm", &res, &res);
-}
-
 void	ft_load_textures(t_program_data *data)
 {
 	ft_load_tiles(data);
-	ft_load_character(data);
+	ft_load_player(data);
 	ft_load_utils(data);
 }
