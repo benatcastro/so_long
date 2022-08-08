@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 06:01:42 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 07:07:26 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ typedef struct s_map {
 
 typedef struct s_character
 {
-	void	*tex[5];
+	void	*tex[1];
+	void	*idle_l[4];
+	void	*idle_r[4];
 	char	**map_pos;
 	char	direction;
 	int		pos_index[2];
@@ -106,7 +108,7 @@ typedef struct s_program_data
 
 /************************Game Logic******************************/
 
-void	ft_pick_collectable(t_program_data *data);
+void	ft_populate_map(t_program_data *data);
 void	ft_check_win(t_program_data *data);
 /************************Mlx Functions******************************/
 void	ft_load_player(t_program_data *data);
@@ -119,6 +121,8 @@ int		ft_mouse_hooks(int key, void *program_data);
 t_map	ft_validate_map(char *map_path);
 /************************Render FNCS******************************/
 
+void	ft_enemies_idle_status(t_program_data *data);
+void	ft_render_enemies(t_program_data *data, int x, int y);
 int		ft_render_frame(void *render_data);
 void	ft_render_map(t_program_data *data);
 void	ft_print_map(char **map);

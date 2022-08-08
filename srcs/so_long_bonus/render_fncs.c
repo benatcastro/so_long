@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 06:02:12 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 07:06:02 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ static void	ft_render_player(t_program_data *data)
 			data->mlx.win, data->player.tex[1],
 			data->player.x, data->player.y);
 	else if (data->player.direction == 'N' || data->player.direction == 'S')
+	{
 		mlx_put_image_to_window(data->mlx.ptr,
 			data->mlx.win, data->player.tex[2],
 			data->player.x, data->player.y);
+		usleep(100);
+		data->player.direction = 'E';
+	}
 	else
 		mlx_put_image_to_window(data->mlx.ptr,
 			data->mlx.win, data->player.tex[0],
@@ -44,10 +48,13 @@ int	ft_render_frame(void *render_data)
 
 	data = render_data;
 	ft_render_map(data);
-	ft_put_collectables(data);
+	ft_populate_map(data);
 	ft_render_player(data);
+	ft_enemies_idle_status(data);
 	ft_render_gui(data);
 	if (data->tick == INT_MAX)
 		data->tick = 0;
+	data->tick++;
+	printf("tic (%llu) status (%d)\n", data->tick, data->enemies.punk.status);
 	return (data->tick);
 }
