@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 10:59:58 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 11:49:13 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_render_frame(void *render_data)
 	ft_render_map(data);
 	ft_populate_map(data);
 	ft_player_logic_manager(data);
+	ft_enemies_move_logic(data);
 	ft_enemies_idle_status(data);
 	ft_render_gui(data);
 	if (data->tick == INT_MAX)

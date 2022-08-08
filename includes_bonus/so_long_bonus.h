@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 10:45:00 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:02:57 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 # include "mlx.h"
 # include "get_next_line_bonus.h"
 
-# define IMG_RES 128
+# define IMG_RES 			128
+# define TICKS_PER_IMG		10
+# define SPAWN_RATE			4
+# define MOVE_RATE			4
 
 # define FLAMINGO	0x00F8C4F8
 # define ROSE		0x00E2252B
@@ -109,6 +112,7 @@ typedef struct s_program_data
 
 /************************Game Logic******************************/
 
+void	ft_enemies_move_logic(t_program_data *data);
 void	ft_spawn_enemies(t_program_data *data);
 void	ft_populate_map(t_program_data *data);
 void	ft_check_win(t_program_data *data);
