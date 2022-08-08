@@ -6,11 +6,11 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 20:48:01 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 02:55:43 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 03:54:00 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static size_t	ft_read_len(char *path)
 {
@@ -43,7 +43,7 @@ static void	ft_init_window(int width, int height, t_map *map_data)
 	data.player.map_pos = map_data->map_str;
 	data.player.needed_items = map_data->collectables;
 	data.mlx.ptr = mlx_init();
-	data.mlx.win = mlx_new_window(data.mlx.ptr, width, height, "so_long");
+	data.mlx.win = mlx_new_window(data.mlx.ptr, width, height, "so_long_bonus");
 	ft_load_textures(&data);
 	ft_render_map(&data);
 	ft_put_player(&data);

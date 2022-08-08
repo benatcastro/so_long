@@ -6,11 +6,11 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:54:35 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 20:42:35 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 03:53:42 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 char	ft_check_tile(t_program_data *data)
 {

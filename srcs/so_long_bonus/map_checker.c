@@ -6,11 +6,11 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:56:49 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/03 19:18:23 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 03:54:07 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 /*
 Parsing of every line of the map looking for any invalid wall position
 Also checks for any invalid character in the map

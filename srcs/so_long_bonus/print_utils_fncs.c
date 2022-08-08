@@ -6,11 +6,11 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 06:48:55 by becastro          #+#    #+#             */
-/*   Updated: 2022/07/27 09:54:43 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 03:54:37 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_put_collectables(t_program_data *data)
 {
