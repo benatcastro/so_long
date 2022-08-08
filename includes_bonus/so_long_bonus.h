@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 07:07:26 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 07:34:13 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_map {
 typedef struct s_character
 {
 	void	*tex[1];
+	int		idle_status;
 	void	*idle_l[4];
 	void	*idle_r[4];
 	char	**map_pos;
@@ -133,8 +134,10 @@ void	ft_print_inside_walls(t_program_data *data);
 void	ft_print_inside_walls_sides(t_program_data *data);
 void	ft_put_collectables(t_program_data *data);
 void	ft_put_player(t_program_data *data);
-/************************Move FNCS******************************/
+/************************Player Logic******************************/
 
+void	ft_player_logic_manager(t_program_data *data);
+void	ft_player_status(t_program_data *data);
 void	ft_move_character(t_program_data *data, int dir);
 char	ft_check_tile(t_program_data *data);
 /************************Error management************************/

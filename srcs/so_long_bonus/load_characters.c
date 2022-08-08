@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 05:36:29 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 07:11:21 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 07:18:14 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,22 @@ void	ft_load_player(t_program_data *data)
 	res = IMG_RES;
 	data->player.tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
 			"textures/biker/biker_back.xpm", &res, &res);
-	data->player.tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/biker/biker_back.xpm", &res, &res);
+	data->player.idle_l[0] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/biker/idle/idle_0_l.xpm", &res, &res);
+	data->player.idle_l[1] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/biker/idle/idle_1_l.xpm", &res, &res);
+	data->player.idle_l[2] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/biker/idle/idle_2_l.xpm", &res, &res);
+	data->player.idle_l[3] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/biker/idle/idle_3_l.xpm", &res, &res);
+	data->player.idle_r[0] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/biker/idle/idle_0_r.xpm", &res, &res);
+	data->player.idle_r[1] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/biker/idle/idle_1_r.xpm", &res, &res);
+	data->player.idle_r[2] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/biker/idle/idle_2_r.xpm", &res, &res);
+	data->player.idle_r[3] = mlx_xpm_file_to_image(data->mlx.ptr,
+			"textures/biker/idle/idle_3_r.xpm", &res, &res);
 }
 
 void	ft_load_punk(t_program_data *data)
