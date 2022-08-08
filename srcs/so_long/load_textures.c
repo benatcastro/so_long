@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 04:07:50 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 08:09:45 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ static void	ft_load_character(t_program_data *data)
 
 	res = IMG_RES;
 	data->player.tex[0] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/character/biker_W.xpm", &res, &res);
+			"textures/biker/idle/idle_0_l.xpm", &res, &res);
 	data->player.tex[1] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/character/biker_E.xpm", &res, &res);
+			"textures/biker/idle/idle_0_r.xpm", &res, &res);
 	data->player.tex[2] = mlx_xpm_file_to_image(data->mlx.ptr,
-			"textures/character/biker_N.xpm", &res, &res);
+			"textures/biker/back/biker_back_0.xpm", &res, &res);
 }
 
 void	ft_load_textures(t_program_data *data)

@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 06:17:09 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 08:02:44 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_render_frame(void *render_data)
 
 	data = render_data;
 	ft_render_map(data);
-	ft_poblate_map(data);
+	ft_put_collectables(data);
 	ft_render_player(data);
 	if (frame == INT_MAX)
 		frame = 0;
