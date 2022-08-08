@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 03:55:46 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 04:00:41 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ void	ft_print_inside_walls(t_program_data *data);
 void	ft_print_inside_walls_sides(t_program_data *data);
 void	ft_put_collectables(t_program_data *data);
 void	ft_put_player(t_program_data *data);
-void	ft_render_gui(t_program_data *data);
 /************************Move FNCS******************************/
 
 void	ft_move_character(t_program_data *data, int dir);

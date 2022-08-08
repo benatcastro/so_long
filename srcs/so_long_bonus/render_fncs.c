@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 03:54:44 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 04:04:36 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ static void	ft_render_player(t_program_data *data)
 			data->player.x, data->player.y);
 }
 
+static void	ft_render_gui(t_program_data *data)
+{
+	mlx_string_put(data->mlx.ptr, data->mlx.win, 10, 20, ROSE, "Movements: ");
+	mlx_string_put(data->mlx.ptr, data->mlx.win, 80, 20, ROSE,
+		ft_itoa(data->player.movements));
+}
+
 int	ft_render_frame(void *render_data)
 {
 	static int		frame;
@@ -40,6 +47,7 @@ int	ft_render_frame(void *render_data)
 	ft_render_map(data);
 	ft_put_collectables(data);
 	ft_render_player(data);
+	ft_render_gui(data);
 	if (frame == INT_MAX)
 		frame = 0;
 	frame++;
