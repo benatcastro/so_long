@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:15:04 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 07:34:13 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 07:56:57 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_map {
 
 typedef struct s_character
 {
-	void	*tex[1];
+	void	*back[4];
 	int		idle_status;
 	void	*idle_l[4];
 	void	*idle_r[4];
@@ -113,6 +113,7 @@ void	ft_populate_map(t_program_data *data);
 void	ft_check_win(t_program_data *data);
 /************************Mlx Functions******************************/
 void	ft_load_player(t_program_data *data);
+void	ft_load_player_idle(t_program_data *data);
 void	ft_load_punk(t_program_data *data);
 void	ft_load_textures(t_program_data *data);
 int		ft_key_hooks(int key, void *program_data);

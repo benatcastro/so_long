@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 05:55:50 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 07:58:27 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ft_load_textures(t_program_data *data)
 {
 	ft_load_tiles(data);
 	ft_load_punk(data);
+	ft_load_player_idle(data);
 	ft_load_player(data);
 	ft_load_utils(data);
 }
