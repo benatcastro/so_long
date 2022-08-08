@@ -100,6 +100,10 @@ gnl: mk_dirs
 	@make -s --no-print-directory -C srcs/gnl
 	@echo "$(GREEN)GNL Compiled 📚$(RESET)"
 
+norme:
+	@norminette srcs/so_long & norminette srcs/so_long_bonus
+	@norminette includes/textures.h & norminette includes/so_long.h & includes/darwin_includes/keys.h
+	@norminette srcs/so_long & norminette srcs/so_long_bonus
 clean:
 	@make clean -C srcs/libft
 	@make clean -C srcs/ft_printf

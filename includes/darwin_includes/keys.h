@@ -6,7 +6,7 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 09:25:18 by almirand          #+#    #+#             */
-/*   Updated: 2022/08/08 02:15:05 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 08:56:36 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # define S				1
 # define D				2
 
-# define CLOSE_BUTTON	-520735320
 # define ESC			53
 # define H				9
 

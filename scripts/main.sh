@@ -61,6 +61,7 @@ print_header()
 print_header
 BLA::start_loading_animation "${BLA_so_long[@]}"
 make>logs
+make bonus>logs
 afplay audio/sega.wav &
 BLA::stop_loading_animation
 clear
@@ -74,11 +75,12 @@ do
 	case "$answear" in
 		1)
 		clear
-		map_selector
+		map_selector mandatory
 		check=1
 		;;
 		2)
-		map_selector
+		clear
+		map_selector bonus
 		check=1
 		;;
 		q)

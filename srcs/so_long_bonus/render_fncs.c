@@ -6,15 +6,13 @@
 /*   By: becastro <becastro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 15:24:40 by becastro          #+#    #+#             */
-/*   Updated: 2022/08/08 07:39:38 by becastro         ###   ########.fr       */
+/*   Updated: 2022/08/08 08:30:10 by becastro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 #include "textures.h"
 #include "limits.h"
-
-
 
 static void	ft_render_gui(t_program_data *data)
 {
@@ -36,6 +34,5 @@ int	ft_render_frame(void *render_data)
 	if (data->tick == INT_MAX)
 		data->tick = 0;
 	data->tick++;
-	//printf("tic (%llu) status (%d)\n", data->tick, data->enemies.punk.status);
 	return (data->tick);
 }

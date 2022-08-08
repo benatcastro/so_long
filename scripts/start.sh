@@ -25,11 +25,14 @@ do
 	case "$answear" in
 		1)
 		clear
-		start_so_long mandatory
+		map=map1.ber
+		start_so_long $1
 		check=1
 		;;
 		2)
-		start_so_long bonus
+		clear
+		map=bonus_map.ber
+		start_so_long $1
 		check=1
 		;;
 		q)
@@ -45,11 +48,13 @@ start_so_long()
 	if [[ $1 == mandatory ]]
 	then
 		afplay audio/main_theme.wav &
-		make run
+		./execs/so_long maps/$map
 		pkill afplay
 	elif [[ $1 == bonus ]]
 	then
-		echo "test Bonus"
+		afplay audio/main_theme.wav &
+		./execs/so_long_bonus maps/$map
+		pkill afplay
 	fi
 }
 
